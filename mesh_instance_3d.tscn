@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://coh4tgn7wsy48"]
+
+[ext_resource type="Script" uid="uid://di2cg4kun3v7a" path="res://camera.gd" id="1_yvhtj"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_yvhtj"]
+
+[node name="Camera_Scene" type="Node"]
+
+[node name="Camera" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 2.4589307, 1.027738)
+script = ExtResource("1_yvhtj")
+move_speed = 5.0
+
+[node name="Camera3D" type="Camera3D" parent="Camera"]
+transform = Transform3D(1, 0, 0, 0, 0.7933533, 0.6087614, 0, -0.6087614, 0.7933533, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, -0.30935788, 0)
+mesh = SubResource("PlaneMesh_yvhtj")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.6629076, 0.7487012, 0, -0.7487012, 0.6629076, 0, 3.1264293, 3.4520519)
