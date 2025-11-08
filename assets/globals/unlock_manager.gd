@@ -42,5 +42,7 @@ var unlocks: Array[bool] = [
 ]
 
 
-func update_tokens():
-	pass
+func update_tokens(game):
+	tokens[game[0]] += 1
+	tokens[game[1]] += 1
+	tokens[game[2]] += 1
