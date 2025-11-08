@@ -3,7 +3,10 @@ extends Node
 
 var tokens: Dictionary[String, int] = {
 	"fire": 2,
-	"water": 4
+	"water": 4,
+	"air": 0,
+	"earth": 5,
+	"mystic": 2
 }
 
 #var unlocks: Dictionary[String, bool] = {
@@ -37,3 +40,7 @@ var unlocks: Array[bool] = [
 	false,
 	false,
 ]
+
+
+func update_tokens():
+	pass

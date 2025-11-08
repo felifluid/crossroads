@@ -13,12 +13,21 @@
 extends Node
 var websocket_url := "wss://kly6piqk82.execute-api.eu-north-1.amazonaws.com/development?client=%s&?el1=%s&?el2=%s&?el3=%s"
 var socket : WebSocketPeer
+var called_once: bool = false
+
+
+func _ready() -> void:
+	set_process(false)
 
 func call_API(game_name : String, element1 : String, element2 : String, element3 : String) -> void:
-	if (is_processing()):
-		socket = WebSocketPeer.new()
-		print("DEBUG: calling crossroads API")
-		socket.connect_to_url(websocket_url % [game_name, element1, element2, element3])
+	if called_once:
+		return
+	
+	set_process(true)
+	called_once = true
+	socket = WebSocketPeer.new()
+	print("DEBUG: calling crossroads API")
+	socket.connect_to_url(websocket_url % [game_name, element1, element2, element3])
 	
 func _process(delta: float) -> void:
 	socket.poll()
