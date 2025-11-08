@@ -1,19 +1,63 @@
 extends Node
 
-@export var websocket_url = "wss://kly6piqk82.execute-api.eu-north-1.amazonaws.com/development/"
+@onready var websocket_url = "wss://kly6piqk82.execute-api.eu-north-1.amazonaws.com/development?client=%s&username=%s"
+@export var game_name = "crossroads"
+@export var element1 = "fire"
+@export var element2 = "water"
+@export var element3 = "earth"
+var username = "test_user"
+
+var payload_crossroads = {
+			"action": "fetch",
+			"message": {
+				'game_name' : game_name,
+				'username' : username
+			}
+		}
+
+var payload_other = {
+			"action": "unlock",
+			"message": {
+				'game_name' : game_name,
+				'element1' : element1,
+				'element2' : element2,
+				'element3' : element3
+			}
+		}
+
 
 var socket : WebSocketPeer
 var current_state : WebSocketPeer.State = WebSocketPeer.STATE_CLOSED
+var ping_timer := 0.0
 
 func _ready() -> void:
 	socket = WebSocketPeer.new()
-	socket.connect_to_url(websocket_url + "?username=test_user")
+	print("connecting to websocket")
+	socket.connect_to_url(websocket_url % [game_name, username])
 	
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
 	socket.poll()
 	if socket.get_ready_state() != current_state:
 		current_state = socket.get_ready_state()
 		print("current state: ", current_state)
+		if current_state == WebSocketPeer.State.STATE_OPEN:
+			print("sending fetch message")
+			socket.send_text(JSON.stringify(payload_crossroads))
 	if socket.get_ready_state() == WebSocketPeer.STATE_OPEN:
-		while socket.get_available_packet_count():
-			print("message received: ", JSON.stringify(socket.get_packet().get_string_from_utf8()))
+		while socket.get_available_packet_count() > 0:
+			print("packet arrived!")
+			var packet = socket.get_packet().get_string_from_utf8()
+			var json = JSON.new()
+			var error = json.parse(packet)
+			var message
+			if error != OK:
+				message = packet
+				#do nothing
+			else:
+				message = json.data
+				print("message received: ", JSON.stringify(message, "\t"))
+		# Send heartbeat every 25 seconds
+		ping_timer += delta
+		if ping_timer > 25.0:
+			socket.put_packet("ping".to_utf8_buffer())
+			ping_timer = 0.0
