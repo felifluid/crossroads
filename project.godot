@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 GameManager="*res://assets/globals/game_manager.gd"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/mesh_merge/plugin.cfg")
+
 [input]
 
 move_forward={

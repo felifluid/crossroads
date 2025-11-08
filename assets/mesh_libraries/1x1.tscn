@@ -1,0 +1,43 @@
+[gd_scene load_steps=10 format=3 uid="uid://doukld70nkb4h"]
+
+[ext_resource type="PackedScene" uid="uid://d3uca7mvjjvi" path="res://assets/tiles/1x1/pine.tscn" id="1_3swvn"]
+[ext_resource type="PackedScene" uid="uid://cwiywmoqn8uif" path="res://assets/tiles/1x1/tree.tscn" id="2_uup71"]
+[ext_resource type="PackedScene" uid="uid://ckjy4c3s0cc68" path="res://assets/tiles/1x1/tree_corner.tscn" id="3_ik16r"]
+[ext_resource type="PackedScene" uid="uid://dsgk4n13i10lc" path="res://assets/tiles/1x1/tree_crooked.tscn" id="4_s65m3"]
+[ext_resource type="PackedScene" uid="uid://dpm1tbaabyvfn" path="res://assets/tiles/1x1/bench.tscn" id="5_wbqjy"]
+[ext_resource type="PackedScene" uid="uid://dea4wwvuy8yf0" path="res://assets/tiles/1x1/fence.tscn" id="6_nd6ih"]
+[ext_resource type="PackedScene" uid="uid://ginf045hb121" path="res://assets/tiles/1x1/fence-gate.tscn" id="7_dup88"]
+[ext_resource type="PackedScene" uid="uid://tmbyg1crv4a0" path="res://assets/tiles/1x1/fence-curve.tscn" id="8_fhock"]
+[ext_resource type="PackedScene" uid="uid://6t2oo2v4xhgb" path="res://assets/tiles/1x1/shed.tscn" id="9_naahw"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="pine" parent="." instance=ExtResource("1_3swvn")]
+visible = false
+
+[node name="tree" parent="." instance=ExtResource("2_uup71")]
+visible = false
+
+[node name="tree_corner" parent="." instance=ExtResource("3_ik16r")]
+transform = Transform3D(0.81856096, 0, -0.5744196, 0, 1, 0, 0.5744196, 0, 0.81856096, 0.23816419, 0, 0.24899888)
+visible = false
+
+[node name="tree_crooked" parent="." instance=ExtResource("4_s65m3")]
+visible = false
+
+[node name="bench" parent="." instance=ExtResource("5_wbqjy")]
+transform = Transform3D(0.9953962, 0, -0.09584575, 0, 1, 0, 0.09584575, 0, 0.9953962, 0, 0, -0.2)
+visible = false
+
+[node name="fence" parent="." instance=ExtResource("6_nd6ih")]
+visible = false
+
+[node name="fence-gate" parent="." instance=ExtResource("7_dup88")]
+visible = false
+
+[node name="fence-curved" parent="." instance=ExtResource("8_fhock")]
+visible = false
+
+[node name="shed" parent="." instance=ExtResource("9_naahw")]
+visible = false
+skeleton = NodePath("../fence-curved")
