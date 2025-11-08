@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bcdkqelmx8iur"]
+
+[ext_resource type="PackedScene" uid="uid://ctlusewagvqfc" path="res://assets/tree.glb" id="1_vitg7"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_s3g4s"]
+size = Vector2(1, 1)
+
+[node name="Node" type="Node"]
+
+[node name="tile" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_s3g4s")
+
+[node name="tree" parent="." instance=ExtResource("1_vitg7")]
+transform = Transform3D(0.78392106, 0, -0.6208605, 0, 1, 0, 0.6208605, 0, 0.78392106, 0.27746868, 0, 0.22494018)
