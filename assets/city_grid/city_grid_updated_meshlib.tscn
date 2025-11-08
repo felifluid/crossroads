@@ -1,7 +1,7 @@
 [gd_scene load_steps=28 format=4 uid="uid://cx3nae2kf70ob"]
 
 [ext_resource type="Script" uid="uid://bji6l7e8uuyya" path="res://assets/city_grid/builder.gd" id="1_l8yio"]
-[ext_resource type="PackedScene" uid="uid://cgoq4m72cxwkd" path="res://assets/ui/hud.tscn" id="2_nploa"]
+[ext_resource type="PackedScene" uid="uid://cgoq4m72cxwkd" path="res://assets/ui/hud/hud.tscn" id="2_nploa"]
 [ext_resource type="Texture2D" uid="uid://bktc3pns85lbw" path="res://assets/models/fantasy_town/Textures/colormap.png" id="3_fbo13"]
 [ext_resource type="MeshLibrary" uid="uid://crs2dm52j7tf" path="res://assets/mesh_libraries/3x3.tres" id="4_0gnr7"]
 [ext_resource type="PackedScene" uid="uid://l42ksnikgke3" path="res://assets/camera/camera.tscn" id="5_dt4dh"]

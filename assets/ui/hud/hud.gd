@@ -27,6 +27,17 @@ func _ready() -> void:
 	button_delete.pressed.connect(_on_button_delete_pressed)
 
 
+func init_buttons(mesh_library: MeshLibrary, mesh_library_size: int):
+	for idx in mesh_library_size:
+		var button := TextureButton.new()
+		button.custom_minimum_size = Vector2(50, 50)
+		button.pressed.connect(_on_button_pressed.bind(idx))
+		button.mouse_filter = Control.MOUSE_FILTER_PASS
+		button.texture_normal = mesh_library.get_item_preview(idx)
+		
+		buildings.add_child(button)
+
+
 func _on_button_pressed(idx: int):
 	new_mesh_selected.emit(idx)
 

@@ -1,0 +1,94 @@
+[gd_scene load_steps=2 format=3 uid="uid://5g2hgv4b8adm"]
+
+[ext_resource type="Script" uid="uid://cq63rtj2iogh3" path="res://assets/ui/unlock_menu/unlock_menu.gd" id="1_cuxbm"]
+
+[node name="UnlockMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cuxbm")
+
+[node name="Unlockables" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+columns = 5
+
+[node name="Inventory" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_right = -10.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Inventory"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Aspect" type="Label" parent="Inventory/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Water"
+
+[node name="Amount" type="Label" parent="Inventory/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "5"
+horizontal_alignment = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Inventory"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Aspect" type="Label" parent="Inventory/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Fire"
+
+[node name="Amount" type="Label" parent="Inventory/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "5"
+horizontal_alignment = 2
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Inventory"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Aspect" type="Label" parent="Inventory/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Earth"
+
+[node name="Amount" type="Label" parent="Inventory/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "5"
+horizontal_alignment = 2
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="Inventory"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Aspect" type="Label" parent="Inventory/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Wind"
+
+[node name="Amount" type="Label" parent="Inventory/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "5"
+horizontal_alignment = 2

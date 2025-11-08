@@ -1,18 +1,20 @@
-[gd_scene load_steps=11 format=3 uid="uid://c2t267nc1ahge"]
+[gd_scene load_steps=12 format=3 uid="uid://c2t267nc1ahge"]
 
-[ext_resource type="MeshLibrary" uid="uid://dukn0y1tdvcre" path="res://assets/assets_demo/test_mesh_library.tres" id="1_5cipg"]
 [ext_resource type="Script" uid="uid://bji6l7e8uuyya" path="res://assets/city_grid/builder.gd" id="1_7x15e"]
+[ext_resource type="MeshLibrary" uid="uid://bmbigmukn5kvo" path="res://assets/city_grid/1x1_test.tres" id="3_0p8ms"]
 [ext_resource type="PackedScene" uid="uid://l42ksnikgke3" path="res://assets/camera/camera.tscn" id="3_uwrpk"]
-[ext_resource type="PackedScene" uid="uid://cgoq4m72cxwkd" path="res://assets/ui/hud.tscn" id="4_0p8ms"]
+[ext_resource type="PackedScene" uid="uid://cgoq4m72cxwkd" path="res://assets/ui/hud/hud.tscn" id="4_0p8ms"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_6hp2o"]
+size = Vector3(20, 1, 20)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5cipg"]
 size = Vector3(20, 1, 20)
 
-[sub_resource type="BoxMesh" id="BoxMesh_uwrpk"]
-size = Vector3(2, 0.04, 2)
+[sub_resource type="BoxMesh" id="BoxMesh_0p8ms"]
+size = Vector3(1, 0.04, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uwrpk"]
-albedo_color = Color(0.7143471, 0, 0.31634295, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6hp2o"]
 
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_0p8ms"]
 
@@ -29,12 +31,14 @@ script = ExtResource("1_7x15e")
 [node name="HUD" parent="." instance=ExtResource("4_0p8ms")]
 
 [node name="GridMap" type="GridMap" parent="."]
-mesh_library = ExtResource("1_5cipg")
+mesh_library = ExtResource("3_0p8ms")
+cell_size = Vector3(1, 1, 1)
+cell_center_y = false
 metadata/_editor_floor_ = Vector3(0, 0, 0)
 
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
+[node name="CSGBox3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
-size = Vector3(20, 1, 20)
+mesh = SubResource("BoxMesh_6hp2o")
 
 [node name="Ground" type="StaticBody3D" parent="CSGBox3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
@@ -43,18 +47,24 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 shape = SubResource("BoxShape3D_5cipg")
 
-[node name="GhostMesh" type="CSGMesh3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1)
-mesh = SubResource("BoxMesh_uwrpk")
-material = SubResource("StandardMaterial3D_uwrpk")
+[node name="GhostMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+mesh = SubResource("BoxMesh_0p8ms")
+surface_material_override/0 = SubResource("StandardMaterial3D_6hp2o")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_tta3q")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.5633674, 0.8262065, 0, -0.8262065, 0.5633674, 0, 4.8103466, 7.4109077)
-light_energy = 13.701
+transform = Transform3D(1, 0, 0, 0, 0.43519965, 0.900334, 0, -0.900334, 0.43519965, 0, 11.1042595, 7.4109077)
+light_energy = 3.0
 
 [node name="Camera" parent="." instance=ExtResource("3_uwrpk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.02231, 0)
 rotation_speed = 180
+
+[node name="Label" type="Label" parent="."]
+offset_left = 81.0
+offset_top = 234.0
+offset_right = 180.0
+offset_bottom = 270.0

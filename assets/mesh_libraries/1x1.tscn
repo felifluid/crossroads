@@ -13,31 +13,36 @@
 [node name="Node3D" type="Node3D"]
 
 [node name="pine" parent="." instance=ExtResource("1_3swvn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.50203466, 0, -0.5325793)
 visible = false
 
 [node name="tree" parent="." instance=ExtResource("2_uup71")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5113902, 0, -0.51903963)
 visible = false
 
 [node name="tree_corner" parent="." instance=ExtResource("3_ik16r")]
-transform = Transform3D(0.81856096, 0, -0.5744196, 0, 1, 0, 0.5744196, 0, 0.81856096, 0.23816419, 0, 0.24899888)
+transform = Transform3D(0.81856096, 0, -0.5744196, 0, 1, 0, 0.5744196, 0, 0.81856096, 0.5093825, 0, -0.49579966)
 visible = false
 
 [node name="tree_crooked" parent="." instance=ExtResource("4_s65m3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.51462805, 0, -0.52559185)
 visible = false
 
 [node name="bench" parent="." instance=ExtResource("5_wbqjy")]
-transform = Transform3D(0.9953962, 0, -0.09584575, 0, 1, 0, 0.09584575, 0, 0.9953962, 0, 0, -0.2)
+transform = Transform3D(0.9953962, 0, -0.09584575, 0, 1, 0, 0.09584575, 0, 0.9953962, 0.53444004, 0, -0.47691226)
 visible = false
 
 [node name="fence" parent="." instance=ExtResource("6_nd6ih")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.51381284)
 visible = false
 
 [node name="fence-gate" parent="." instance=ExtResource("7_dup88")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.4982696)
 visible = false
 
 [node name="fence-curved" parent="." instance=ExtResource("8_fhock")]
 visible = false
 
 [node name="shed" parent="." instance=ExtResource("9_naahw")]
-visible = false
+transform = Transform3D(1, 0, 0, 0, 0.8, 0, 0, 0, 1, 0.4929192, 0, -0.49940512)
 skeleton = NodePath("../fence-curved")
