@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://baagsyvgngxrq"
-path="res://.godot/imported/wall-wood-door.glb-4719cbdb45bb6b3ee11d8950ea9e269e.scn"
+uid="uid://bkucpkkwpwy7u"
+path="res://.godot/imported/roof-high-gable.glb-a3c83d8bc8935b9e2efc47bee7464589.scn"
 
 [deps]
 
-source_file="res://assets/wall-wood-door.glb"
-dest_files=["res://.godot/imported/wall-wood-door.glb-4719cbdb45bb6b3ee11d8950ea9e269e.scn"]
+source_file="res://assets/models/fantasy_town/roof-high-gable.glb"
+dest_files=["res://.godot/imported/roof-high-gable.glb-a3c83d8bc8935b9e2efc47bee7464589.scn"]
 
 [params]
 

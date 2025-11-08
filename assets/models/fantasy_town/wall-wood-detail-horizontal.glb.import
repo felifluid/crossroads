@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://mq8cddcapt1d"
-path="res://.godot/imported/wall-window-glass.glb-c7b0c0b4af859250a14dec9857a31699.scn"
+uid="uid://c04v6vju8oc30"
+path="res://.godot/imported/wall-wood-detail-horizontal.glb-6c8e367de3aaf5de094abe547b84919d.scn"
 
 [deps]
 
-source_file="res://assets/wall-window-glass.glb"
-dest_files=["res://.godot/imported/wall-window-glass.glb-c7b0c0b4af859250a14dec9857a31699.scn"]
+source_file="res://assets/models/fantasy_town/wall-wood-detail-horizontal.glb"
+dest_files=["res://.godot/imported/wall-wood-detail-horizontal.glb-6c8e367de3aaf5de094abe547b84919d.scn"]
 
 [params]
 

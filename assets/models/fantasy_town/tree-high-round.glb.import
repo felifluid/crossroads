@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bbifj78ljbe6j"
-path="res://.godot/imported/wall-wood.glb-d5cfd173b7ef95b3d70ab6cad0cbcf42.scn"
+uid="uid://cgvvh5q4s2lxa"
+path="res://.godot/imported/tree-high-round.glb-de5cdd513126f50db120f4d121e13775.scn"
 
 [deps]
 
-source_file="res://assets/wall-wood.glb"
-dest_files=["res://.godot/imported/wall-wood.glb-d5cfd173b7ef95b3d70ab6cad0cbcf42.scn"]
+source_file="res://assets/models/fantasy_town/tree-high-round.glb"
+dest_files=["res://.godot/imported/tree-high-round.glb-de5cdd513126f50db120f4d121e13775.scn"]
 
 [params]
 

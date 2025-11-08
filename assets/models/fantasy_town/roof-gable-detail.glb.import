@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://v4bomc33a3my"
-path="res://.godot/imported/roof-high-gable-top.glb-bdc56f7aff9a76d3ff4b840fd24bfa62.scn"
+uid="uid://ct7t7qr4wkj1o"
+path="res://.godot/imported/roof-gable-detail.glb-043e5789ebb503a70e90a00f0c724d1f.scn"
 
 [deps]
 
-source_file="res://assets/roof-high-gable-top.glb"
-dest_files=["res://.godot/imported/roof-high-gable-top.glb-bdc56f7aff9a76d3ff4b840fd24bfa62.scn"]
+source_file="res://assets/models/fantasy_town/roof-gable-detail.glb"
+dest_files=["res://.godot/imported/roof-gable-detail.glb-043e5789ebb503a70e90a00f0c724d1f.scn"]
 
 [params]
 

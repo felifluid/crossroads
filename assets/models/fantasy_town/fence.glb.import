@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://ctlusewagvqfc"
-path="res://.godot/imported/tree.glb-d29a3d5b2d34de8f26474065b5543a28.scn"
+uid="uid://b36k287rmnou"
+path="res://.godot/imported/fence.glb-86ceb03290354540ceda4f54f2d5007a.scn"
 
 [deps]
 
-source_file="res://assets/tree.glb"
-dest_files=["res://.godot/imported/tree.glb-d29a3d5b2d34de8f26474065b5543a28.scn"]
+source_file="res://assets/models/fantasy_town/fence.glb"
+dest_files=["res://.godot/imported/fence.glb-86ceb03290354540ceda4f54f2d5007a.scn"]
 
 [params]
 

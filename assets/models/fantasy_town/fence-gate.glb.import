@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bkucpkkwpwy7u"
-path="res://.godot/imported/roof-high-gable.glb-e3abab7eedf9a06373c1b054efb7b303.scn"
+uid="uid://dmm8tnghobcle"
+path="res://.godot/imported/fence-gate.glb-4e9cc113694bddd6f98d843c7c2333ab.scn"
 
 [deps]
 
-source_file="res://assets/roof-high-gable.glb"
-dest_files=["res://.godot/imported/roof-high-gable.glb-e3abab7eedf9a06373c1b054efb7b303.scn"]
+source_file="res://assets/models/fantasy_town/fence-gate.glb"
+dest_files=["res://.godot/imported/fence-gate.glb-4e9cc113694bddd6f98d843c7c2333ab.scn"]
 
 [params]
 

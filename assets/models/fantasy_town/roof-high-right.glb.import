@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bgxavhhxot75m"
-path="res://.godot/imported/roof-high-right.glb-a34e077da7ae44d7a0fcf5a66477121b.scn"
+path="res://.godot/imported/roof-high-right.glb-4c5a276ef6db162be5266a023afa8784.scn"
 
 [deps]
 
-source_file="res://assets/roof-high-right.glb"
-dest_files=["res://.godot/imported/roof-high-right.glb-a34e077da7ae44d7a0fcf5a66477121b.scn"]
+source_file="res://assets/models/fantasy_town/roof-high-right.glb"
+dest_files=["res://.godot/imported/roof-high-right.glb-4c5a276ef6db162be5266a023afa8784.scn"]
 
 [params]
 

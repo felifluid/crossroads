@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://c04v6vju8oc30"
-path="res://.godot/imported/wall-wood-detail-horizontal.glb-110ea9a3a1317c485579d61ee2a4edba.scn"
+uid="uid://ci03c3vqngmfw"
+path="res://.godot/imported/roof-high-left.glb-a7e8f3f1632a6b2a35917b62dd069f21.scn"
 
 [deps]
 
-source_file="res://assets/wall-wood-detail-horizontal.glb"
-dest_files=["res://.godot/imported/wall-wood-detail-horizontal.glb-110ea9a3a1317c485579d61ee2a4edba.scn"]
+source_file="res://assets/models/fantasy_town/roof-high-left.glb"
+dest_files=["res://.godot/imported/roof-high-left.glb-a7e8f3f1632a6b2a35917b62dd069f21.scn"]
 
 [params]
 

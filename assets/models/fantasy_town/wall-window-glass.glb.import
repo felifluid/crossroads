@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bir161fv4cr30"
-path="res://.godot/imported/roof-high.glb-038e5103484900f524ba239a83647319.scn"
+uid="uid://mq8cddcapt1d"
+path="res://.godot/imported/wall-window-glass.glb-0739d2d27a247ee2db2364e656550c12.scn"
 
 [deps]
 
-source_file="res://assets/roof-high.glb"
-dest_files=["res://.godot/imported/roof-high.glb-038e5103484900f524ba239a83647319.scn"]
+source_file="res://assets/models/fantasy_town/wall-window-glass.glb"
+dest_files=["res://.godot/imported/wall-window-glass.glb-0739d2d27a247ee2db2364e656550c12.scn"]
 
 [params]
 

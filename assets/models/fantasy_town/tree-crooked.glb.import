@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://ci03c3vqngmfw"
-path="res://.godot/imported/roof-high-left.glb-e7d0147d811a1108f8b7da8d391d7469.scn"
+uid="uid://hnp46xu167xf"
+path="res://.godot/imported/tree-crooked.glb-9e9ec00465d4b38d0c59d50c325d89d9.scn"
 
 [deps]
 
-source_file="res://assets/roof-high-left.glb"
-dest_files=["res://.godot/imported/roof-high-left.glb-e7d0147d811a1108f8b7da8d391d7469.scn"]
+source_file="res://assets/models/fantasy_town/tree-crooked.glb"
+dest_files=["res://.godot/imported/tree-crooked.glb-9e9ec00465d4b38d0c59d50c325d89d9.scn"]
 
 [params]
 
