@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c2t267nc1ahge"]
+[gd_scene load_steps=11 format=3 uid="uid://c2t267nc1ahge"]
 
 [ext_resource type="MeshLibrary" uid="uid://dukn0y1tdvcre" path="res://assets/assets_demo/test_mesh_library.tres" id="1_5cipg"]
 [ext_resource type="Script" uid="uid://bji6l7e8uuyya" path="res://assets/city_grid/builder.gd" id="1_7x15e"]
@@ -13,6 +13,15 @@ size = Vector3(2, 0.04, 2)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uwrpk"]
 albedo_color = Color(0.7143471, 0, 0.31634295, 1)
+
+[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_0p8ms"]
+
+[sub_resource type="Sky" id="Sky_6hp2o"]
+sky_material = SubResource("PhysicalSkyMaterial_0p8ms")
+
+[sub_resource type="Environment" id="Environment_tta3q"]
+background_mode = 2
+sky = SubResource("Sky_6hp2o")
 
 [node name="CityGrid" type="Node3D"]
 script = ExtResource("1_7x15e")
@@ -34,15 +43,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 shape = SubResource("BoxShape3D_5cipg")
 
-[node name="Camera" parent="." instance=ExtResource("3_uwrpk")]
-transform = Transform3D(1, 0, 0, 0, 0.8655887, 0.50075555, 0, -0.50075555, 0.8655887, 0, 1.7780347, 10.877937)
-
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.3848505, 0)
-light_energy = 6.113
-omni_range = 24.367054
-
 [node name="GhostMesh" type="CSGMesh3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.5, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1)
 mesh = SubResource("BoxMesh_uwrpk")
 material = SubResource("StandardMaterial3D_uwrpk")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_tta3q")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.5633674, 0.8262065, 0, -0.8262065, 0.5633674, 0, 4.8103466, 7.4109077)
+light_energy = 13.701
+
+[node name="Camera" parent="." instance=ExtResource("3_uwrpk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.02231, 0)
+rotation_speed = 180

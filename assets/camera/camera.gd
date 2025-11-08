@@ -5,6 +5,7 @@ extends Node3D
 @export var smoothness := 5.0       # Higher = faster interpolation
 
 @onready var camera := $Camera3D
+@onready var max_height: float = position.y
 
 var _target_position: Vector3
 var _target_rotation_y := 0.0
@@ -12,16 +13,24 @@ var _target_rotation_y := 0.0
 func _ready():
 	_target_position = global_position
 	_target_rotation_y = rotation_degrees.y
-	
+
+
 func _process(delta):
 	handle_input(delta)
 	smooth_update(delta)
+
 
 func smooth_update(delta):
 	global_position = global_position.lerp(_target_position, delta * smoothness)
 	var current_y = _target_rotation_y
 	current_y = lerp_angle(current_y, _target_rotation_y, delta * smoothness)
+	
+	var height_diff = clampf(position.y, 0, max_height)
+	var percentage = height_diff / max_height
+	var rotation_x = -90 * percentage
+	
 	rotation_degrees = Vector3(0, current_y, 0)
+	camera.global_rotation_degrees.x = rotation_x
 
 
 func handle_input(delta):
@@ -34,9 +43,9 @@ func handle_input(delta):
 		input_dir.x -= 1
 	if Input.is_action_pressed("move_right"):
 		input_dir.x += 1
-	if Input.is_action_pressed("move_up"):
+	if Input.is_action_just_pressed("move_up"):
 		input_dir.y += 1
-	if Input.is_action_pressed("move_down"):
+	if Input.is_action_just_pressed("move_down"):
 		input_dir.y -= 1
 	if input_dir != Vector3.ZERO:
 		input_dir = input_dir.normalized()
