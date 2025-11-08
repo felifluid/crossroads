@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://c2t267nc1ahge"]
+[gd_scene load_steps=8 format=3 uid="uid://c2t267nc1ahge"]
 
 [ext_resource type="MeshLibrary" uid="uid://dukn0y1tdvcre" path="res://assets/assets_demo/test_mesh_library.tres" id="1_5cipg"]
 [ext_resource type="Script" uid="uid://bji6l7e8uuyya" path="res://assets/city_grid/builder.gd" id="1_7x15e"]
 [ext_resource type="PackedScene" uid="uid://l42ksnikgke3" path="res://assets/camera/camera.tscn" id="3_uwrpk"]
+[ext_resource type="PackedScene" uid="uid://cgoq4m72cxwkd" path="res://assets/ui/hud.tscn" id="4_0p8ms"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5cipg"]
 size = Vector3(20, 1, 20)
@@ -15,6 +16,8 @@ albedo_color = Color(0.7143471, 0, 0.31634295, 1)
 
 [node name="CityGrid" type="Node3D"]
 script = ExtResource("1_7x15e")
+
+[node name="HUD" parent="." instance=ExtResource("4_0p8ms")]
 
 [node name="GridMap" type="GridMap" parent="."]
 mesh_library = ExtResource("1_5cipg")

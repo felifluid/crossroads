@@ -1,24 +1,37 @@
 extends Node3D
 
 
+const MESH_OFFSET = Vector3(1, 0, 1)
+const CELL_SIZE = 2
+
 var active_mesh: Mesh = null
+var active_mesh_idx: int = 0
 
 @onready var grid_map: GridMap = $GridMap
 @onready var ghost_mesh: CSGMesh3D = $GhostMesh
+@onready var hud: HUD = $HUD
 
 
 func _ready() -> void:
 	active_mesh = grid_map.mesh_library.get_item_mesh(0)
+	hud.new_mesh_selected.connect(_select_new_mesh)
+
+
+func _process(_delta: float) -> void:
+	#NOTE: crungo implementation
+	ghost_mesh.visible = not GameManager.placing_locked
 
 
 func _input(event: InputEvent) -> void:
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed():
+	if (event is InputEventMouseButton
+	and event.button_index == MOUSE_BUTTON_LEFT
+	and event.is_pressed()
+	and not GameManager.placing_locked):
 		var cell_pos = _get_cell_coords()
-		#var mesh_placeholder = grid_map.mesh_library.get_item_mesh(0)
-		grid_map.set_cell_item(cell_pos, 0)
+		grid_map.set_cell_item(cell_pos, active_mesh_idx)
 	elif event is InputEventMouseMotion:
 		var cell_pos = _get_cell_coords()
-		ghost_mesh.position = cell_pos as Vector3 * 2 + Vector3(1, 0, 1)
+		ghost_mesh.position = cell_pos as Vector3 * CELL_SIZE + MESH_OFFSET
 
 
 func _get_cell_coords():
@@ -26,7 +39,7 @@ func _get_cell_coords():
 	#print("world pos: ", collision_point)
 	
 	var cell_pos := grid_map.local_to_map(collision_point)
-	print("corresponds to cell ", cell_pos)
+	#print("corresponds to cell ", cell_pos)
 	
 	return cell_pos
 
@@ -49,6 +62,11 @@ func get_point_under_cursor() -> Vector3:
 	var hit_position: Vector3 = ray_result.get("position", Vector3.ZERO)   
 
 	return hit_position  
+
+
+func _select_new_mesh(idx: int) -> void:
+	print("new index: ", idx)
+	active_mesh_idx = idx
 
 
 func get_cursor_world_position() -> Vector3:
