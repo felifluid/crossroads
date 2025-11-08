@@ -1,63 +1,27 @@
+#TODO add this script to your global variables: 
+	# click Project
+	# -> Project Settings
+	# -> Globals 
+	# -> click folder icon and select websocket.gd
+	# -> click Add
+# in your code, call Websocket.call_API(game_name, element, element, element) when the player has won the game
+	# game_name can be any String
+	# element can be "fire", "water", "earth", "air" or "mystic"
+	# example: Websocket.call_API("CocainTurtleRace", "mystic", "air", "air")
+# you can decide which combination of elements fits your game the best, multiple elements are also possible. 
+
 extends Node
-
-@onready var websocket_url = "wss://kly6piqk82.execute-api.eu-north-1.amazonaws.com/development?client=%s&username=%s"
-@export var game_name = "crossroads"
-@export var element1 = "fire"
-@export var element2 = "water"
-@export var element3 = "earth"
-var username = "test_user"
-
-var payload_crossroads = {
-			"action": "fetch",
-			"message": {
-				'game_name' : game_name,
-				'username' : username
-			}
-		}
-
-var payload_other = {
-			"action": "unlock",
-			"message": {
-				'game_name' : game_name,
-				'element1' : element1,
-				'element2' : element2,
-				'element3' : element3
-			}
-		}
-
-
+var websocket_url := "wss://kly6piqk82.execute-api.eu-north-1.amazonaws.com/development?client=%s&?el1=%s&?el2=%s&?el3=%s"
 var socket : WebSocketPeer
-var current_state : WebSocketPeer.State = WebSocketPeer.STATE_CLOSED
-var ping_timer := 0.0
 
-func _ready() -> void:
-	socket = WebSocketPeer.new()
-	print("connecting to websocket")
-	socket.connect_to_url(websocket_url % [game_name, username])
+func call_API(game_name : String, element1 : String, element2 : String, element3 : String) -> void:
+	if (is_processing()):
+		socket = WebSocketPeer.new()
+		print("DEBUG: calling crossroads API")
+		socket.connect_to_url(websocket_url % [game_name, element1, element2, element3])
 	
 func _process(delta: float) -> void:
 	socket.poll()
-	if socket.get_ready_state() != current_state:
-		current_state = socket.get_ready_state()
-		print("current state: ", current_state)
-		if current_state == WebSocketPeer.State.STATE_OPEN:
-			print("sending fetch message")
-			socket.send_text(JSON.stringify(payload_crossroads))
 	if socket.get_ready_state() == WebSocketPeer.STATE_OPEN:
-		while socket.get_available_packet_count() > 0:
-			print("packet arrived!")
-			var packet = socket.get_packet().get_string_from_utf8()
-			var json = JSON.new()
-			var error = json.parse(packet)
-			var message
-			if error != OK:
-				message = packet
-				#do nothing
-			else:
-				message = json.data
-				print("message received: ", JSON.stringify(message, "\t"))
-		# Send heartbeat every 25 seconds
-		ping_timer += delta
-		if ping_timer > 25.0:
-			socket.put_packet("ping".to_utf8_buffer())
-			ping_timer = 0.0
+		print("DEBUG: API call finished")
+		set_process(false)
