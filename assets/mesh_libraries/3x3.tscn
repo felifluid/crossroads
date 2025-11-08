@@ -1,7 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://i61xlkrjcdoy"]
+[gd_scene load_steps=5 format=3 uid="uid://i61xlkrjcdoy"]
 
 [ext_resource type="PackedScene" uid="uid://pji5euuirqfc" path="res://assets/tiles/3x3/house1.tscn" id="1_5gpro"]
+[ext_resource type="PackedScene" uid="uid://def2ckto8w81c" path="res://assets/tiles/3x3/windmill.tscn" id="2_5gpro"]
+[ext_resource type="PackedScene" uid="uid://d31vcl8tci2m8" path="res://assets/tiles/3x3/house2.tscn" id="2_q03mk"]
+[ext_resource type="PackedScene" uid="uid://cmfp2o5ejx0p4" path="res://assets/tiles/3x3/rocks_big.tscn" id="3_hde5k"]
 
 [node name="Node3D" type="Node3D"]
 
 [node name="house1" parent="." instance=ExtResource("1_5gpro")]
+
+[node name="house2" parent="." instance=ExtResource("2_q03mk")]
+transform = Transform3D(0.9232706, 0, 0.3841503, 0, 1, 0, -0.3841503, 0, 0.9232706, 0.50691295, 0, 0.54943705)
+
+[node name="windmill" parent="." instance=ExtResource("2_5gpro")]
+
+[node name="rocks-tall" parent="." instance=ExtResource("3_hde5k")]

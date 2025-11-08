@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://doukld70nkb4h"]
+[gd_scene load_steps=12 format=3 uid="uid://doukld70nkb4h"]
 
 [ext_resource type="PackedScene" uid="uid://d3uca7mvjjvi" path="res://assets/tiles/1x1/pine.tscn" id="1_3swvn"]
 [ext_resource type="PackedScene" uid="uid://cwiywmoqn8uif" path="res://assets/tiles/1x1/tree.tscn" id="2_uup71"]
@@ -8,7 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://dea4wwvuy8yf0" path="res://assets/tiles/1x1/fence.tscn" id="6_nd6ih"]
 [ext_resource type="PackedScene" uid="uid://ginf045hb121" path="res://assets/tiles/1x1/fence-gate.tscn" id="7_dup88"]
 [ext_resource type="PackedScene" uid="uid://tmbyg1crv4a0" path="res://assets/tiles/1x1/fence-curve.tscn" id="8_fhock"]
+[ext_resource type="PackedScene" uid="uid://cov55fo0m0fy1" path="res://assets/tiles/1x1/gravestone.tscn" id="9_fhock"]
 [ext_resource type="PackedScene" uid="uid://6t2oo2v4xhgb" path="res://assets/tiles/1x1/shed.tscn" id="9_naahw"]
+[ext_resource type="PackedScene" uid="uid://cx4k5vlbivf0q" path="res://assets/tiles/1x1/rocks.tscn" id="11_naahw"]
 
 [node name="Node3D" type="Node3D"]
 
@@ -43,6 +45,13 @@ visible = false
 [node name="fence-curved" parent="." instance=ExtResource("8_fhock")]
 visible = false
 
+[node name="gravestone" parent="." instance=ExtResource("9_fhock")]
+transform = Transform3D(0.9019607, 0, 0.43181813, 0, 0.8, 0, -0.43181813, 0, 0.9019607, 0, 0, 0)
+visible = false
+
 [node name="shed" parent="." instance=ExtResource("9_naahw")]
 transform = Transform3D(1, 0, 0, 0, 0.8, 0, 0, 0, 1, 0.4929192, 0, -0.49940512)
 skeleton = NodePath("../fence-curved")
+
+[node name="rocks" parent="." instance=ExtResource("11_naahw")]
+visible = false
