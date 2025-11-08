@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://i61xlkrjcdoy"]
+
+[ext_resource type="PackedScene" uid="uid://pji5euuirqfc" path="res://assets/tiles/3x3/house1.tscn" id="1_5gpro"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="house1" parent="." instance=ExtResource("1_5gpro")]
