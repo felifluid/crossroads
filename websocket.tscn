@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cvtui2fw33gh8"]
 
-[ext_resource type="Script" uid="uid://box4qcgwuc8oo" path="res://asfdsdf.gd" id="1_yv7xl"]
+[ext_resource type="Script" uid="uid://sqxw33rfm3gg" path="res://crossroads_websocket.gd" id="1_yv7xl"]
 
 [node name="Websocket" type="Node"]
 script = ExtResource("1_yv7xl")
