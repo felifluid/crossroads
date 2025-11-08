@@ -22,7 +22,8 @@ func smooth_update(delta):
 	var current_y = _target_rotation_y
 	current_y = lerp_angle(current_y, _target_rotation_y, delta * smoothness)
 	rotation_degrees = Vector3(0, current_y, 0)
-	
+
+
 func handle_input(delta):
 	var input_dir := Vector3.ZERO
 	if Input.is_action_pressed("move_forward"):
@@ -33,11 +34,16 @@ func handle_input(delta):
 		input_dir.x -= 1
 	if Input.is_action_pressed("move_right"):
 		input_dir.x += 1
+	if Input.is_action_pressed("move_up"):
+		input_dir.y += 1
+	if Input.is_action_pressed("move_down"):
+		input_dir.y -= 1
 	if input_dir != Vector3.ZERO:
 		input_dir = input_dir.normalized()
 		var move_dir = transform.basis * input_dir
-		move_dir.y = 0
+		#move_dir.y = 0W
 		_target_position += move_dir * move_speed * delta
+
 	
 	if Input.is_action_pressed("rotate_left"):
 		_target_rotation_y -= rotation_speed * delta

@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://kgktjgvibgtf"]
+
+[ext_resource type="PackedScene" uid="uid://d35t2nofc8mv3" path="res://assets/assets_demo/dae/course_parts1.dae" id="1_6gdxw"]
+
+[node name="course_parts1" instance=ExtResource("1_6gdxw")]
