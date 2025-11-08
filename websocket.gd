@@ -7,7 +7,7 @@ var current_state : WebSocketPeer.State = WebSocketPeer.STATE_CLOSED
 
 func _ready() -> void:
 	socket = WebSocketPeer.new()
-	socket.connect_to_url(websocket_url)
+	socket.connect_to_url(websocket_url + "?username=test_user")
 	
 func _process(_delta: float) -> void:
 	socket.poll()
