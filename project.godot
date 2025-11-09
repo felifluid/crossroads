@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="crossroads"
-run/main_scene="uid://cvtui2fw33gh8"
+run/main_scene="uid://cx3nae2kf70ob"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
