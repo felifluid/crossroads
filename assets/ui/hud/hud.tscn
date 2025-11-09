@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://cgoq4m72cxwkd"]
+[gd_scene load_steps=5 format=3 uid="uid://cgoq4m72cxwkd"]
 
 [ext_resource type="Script" uid="uid://bsjpi42jvnfb1" path="res://assets/ui/hud/hud.gd" id="1_ecl2q"]
-[ext_resource type="PackedScene" uid="uid://5g2hgv4b8adm" path="res://assets/ui/unlock_menu/unlock_menu.tscn" id="2_bg8cs"]
 [ext_resource type="Resource" uid="uid://cdd16idairvch" path="res://assets/ui/unlock_menu/prelim_list.tres" id="2_qyy74"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ecl2q"]
@@ -55,17 +54,18 @@ layout_mode = 2
 size_flags_vertical = 8
 metadata/_tab_index = 2
 
-[node name="UnlockMenu" parent="." instance=ExtResource("2_bg8cs")]
-visible = false
-layout_mode = 1
-
 [node name="Actions" type="HBoxContainer" parent="."]
-layout_mode = 0
-offset_left = 843.0
-offset_top = 312.0
-offset_right = 1207.0
-offset_bottom = 362.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.6605903
+anchor_top = 0.9228395
+anchor_right = 0.7977431
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 8
 size_flags_vertical = 8
+metadata/_edit_use_anchors_ = true
 
 [node name="RotatePlus" type="Button" parent="Actions"]
 custom_minimum_size = Vector2(50, 50)
@@ -84,3 +84,89 @@ custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 mouse_filter = 1
 text = "⛏"
+
+[node name="Inventory" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_right = -10.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Fire" type="HBoxContainer" parent="Inventory"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Aspect" type="Label" parent="Inventory/Fire"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Fire"
+
+[node name="Amount" type="Label" parent="Inventory/Fire"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "5"
+horizontal_alignment = 2
+
+[node name="Water" type="HBoxContainer" parent="Inventory"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Aspect" type="Label" parent="Inventory/Water"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Water"
+
+[node name="Amount" type="Label" parent="Inventory/Water"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "5"
+horizontal_alignment = 2
+
+[node name="Air" type="HBoxContainer" parent="Inventory"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Aspect" type="Label" parent="Inventory/Air"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Air"
+
+[node name="Amount" type="Label" parent="Inventory/Air"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "5"
+horizontal_alignment = 2
+
+[node name="Earth" type="HBoxContainer" parent="Inventory"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Aspect" type="Label" parent="Inventory/Earth"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Earth"
+
+[node name="Amount" type="Label" parent="Inventory/Earth"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "5"
+horizontal_alignment = 2
+
+[node name="Mystic" type="HBoxContainer" parent="Inventory"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Aspect" type="Label" parent="Inventory/Mystic"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Mystic"
+
+[node name="Amount" type="Label" parent="Inventory/Mystic"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "5"
+horizontal_alignment = 2

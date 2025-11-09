@@ -13,28 +13,33 @@ enum modes {
 	DELETE
 }
 
-const CELL_SIZE = 1
+var CELL_SIZE = 1
 
 @export var mesh_offset = Vector3(CELL_SIZE as float / 2, 0, CELL_SIZE as float / 2)
 
 var active_mesh: Mesh = null
 var active_mesh_idx: int = 0
+var active_grid: GridMap = null
 var rotation_counter: int = rotations.EAST
-var mode: int = modes. BUILD
+var mode: int = modes.BUILD
 
-@onready var grid_map: GridMap = $GridMap
+
+@onready var grid_map_single: GridMap = $GridMap1x1
+@onready var grid_map_triple: GridMap = $GridMap3x3
 @onready var ghost_mesh: MeshInstance3D = $GhostMesh
 @onready var hud: HUD = $HUD
 
 
 func _ready() -> void:
-	active_mesh = grid_map.mesh_library.get_item_mesh(0)
+	active_grid = grid_map_single
+	active_mesh = grid_map_single.mesh_library.get_item_mesh(0)
 	hud.new_mesh_selected.connect(_select_new_mesh)
 	hud.rotate_plus_pressed.connect(_increment_rotation)
 	hud.rotate_minus_pressed.connect(_decrement_rotation)
 	hud.delete_pressed.connect(_enter_delete_mode)
 	
-	hud.init_buttons(grid_map.mesh_library, grid_map.mesh_library.get_item_list().size())
+	hud.init_buttons(grid_map_single.mesh_library, grid_map_single)
+	hud.init_buttons(grid_map_triple.mesh_library, grid_map_triple)
 	
 	ghost_mesh.mesh.size = Vector3(CELL_SIZE, 0.04, CELL_SIZE)
 
@@ -49,14 +54,13 @@ func _input(event: InputEvent) -> void:
 		return
 	
 	if (Input.is_action_just_pressed("place_object")
-	and not GameManager.placing_locked):
+	and not _is_placing_locked()):
 		var cell_pos = _get_cell_coords()
-		$Label.text = str(cell_pos)
 		match mode:
 			modes.BUILD:
-				grid_map.set_cell_item(cell_pos, active_mesh_idx, rotation_counter)
+				active_grid.set_cell_item(cell_pos, active_mesh_idx, rotation_counter)
 			modes.DELETE:
-				grid_map.set_cell_item(cell_pos, GridMap.INVALID_CELL_ITEM, rotation_counter)
+				active_grid.set_cell_item(cell_pos, GridMap.INVALID_CELL_ITEM, rotation_counter)
 	elif event is InputEventMouseMotion:
 		var cell_pos = _get_cell_coords()
 		if cell_pos == Vector3i.ONE * -1000:
@@ -68,6 +72,9 @@ func _input(event: InputEvent) -> void:
 		_decrement_rotation()
 
 
+func _is_placing_locked():
+	return hud.tab_container.get_global_rect().has_point(get_viewport().get_mouse_position())
+
 
 func _get_cell_coords():
 	var collision_point = get_cursor_world_position()
@@ -75,8 +82,12 @@ func _get_cell_coords():
 	if not collision_point:
 		return (Vector3.ONE * -1000) as Vector3i
 	
-	var cell_pos := grid_map.local_to_map(collision_point)
-	#print("corresponds to cell ", cell_pos)
+	var cell_pos := active_grid.local_to_map(collision_point)
+	print("corresponds to cell ", cell_pos)
+	
+	#cell_pos.x *= CELL_SIZE
+	#cell_pos.z *= CELL_SIZE
+	#cell_pos.y = 0
 	
 	return cell_pos
 
@@ -114,10 +125,15 @@ func _decrement_rotation():
 	rotation_counter = rotations.values()[key]
 
 
-func _select_new_mesh(idx: int) -> void:
+func _select_new_mesh(idx: int, grid: GridMap) -> void:
 	print("new index: ", idx)
 	active_mesh_idx = idx
-	var new_mesh: Mesh = grid_map.mesh_library.get_item_mesh(idx)
+	active_grid = grid
+	if grid == grid_map_single:
+		CELL_SIZE = 1
+	elif grid == grid_map_triple:
+		CELL_SIZE = 3
+	var new_mesh: Mesh = active_grid.mesh_library.get_item_mesh(idx)
 	ghost_mesh.mesh = new_mesh
 	print(ghost_mesh.mesh)
 	#ghost_mesh.material = null
@@ -143,7 +159,7 @@ func _enter_build_mode():
 		return
 	
 	mode = modes.BUILD
-	_select_new_mesh(active_mesh_idx)
+	_select_new_mesh(active_mesh_idx, active_grid)
 
 
 
