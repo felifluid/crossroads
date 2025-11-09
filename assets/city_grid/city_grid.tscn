@@ -1,15 +1,20 @@
-[gd_scene load_steps=12 format=3 uid="uid://c2t267nc1ahge"]
+[gd_scene load_steps=13 format=3 uid="uid://c2t267nc1ahge"]
 
 [ext_resource type="Script" uid="uid://bji6l7e8uuyya" path="res://assets/city_grid/builder.gd" id="1_7x15e"]
 [ext_resource type="MeshLibrary" uid="uid://bmbigmukn5kvo" path="res://assets/city_grid/1x1_test.tres" id="3_0p8ms"]
-[ext_resource type="PackedScene" uid="uid://l42ksnikgke3" path="res://assets/camera/camera.tscn" id="3_uwrpk"]
 [ext_resource type="PackedScene" uid="uid://cgoq4m72cxwkd" path="res://assets/ui/hud/hud.tscn" id="4_0p8ms"]
+[ext_resource type="Script" uid="uid://s4gwhcir1roa" path="res://assets/camera/rts_camera.gd" id="4_6hp2o"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0p8ms"]
+specular_mode = 1
+albedo_color = Color(0.2901961, 0.7411765, 0.5176471, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_6hp2o"]
-size = Vector3(20, 1, 20)
+material = SubResource("StandardMaterial3D_0p8ms")
+size = Vector3(64, 1, 64)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5cipg"]
-size = Vector3(20, 1, 20)
+size = Vector3(64, 1, 64)
 
 [sub_resource type="BoxMesh" id="BoxMesh_0p8ms"]
 size = Vector3(1, 0.04, 1)
@@ -49,6 +54,7 @@ shape = SubResource("BoxShape3D_5cipg")
 
 [node name="GhostMesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+visible = false
 mesh = SubResource("BoxMesh_0p8ms")
 surface_material_override/0 = SubResource("StandardMaterial3D_6hp2o")
 
@@ -56,12 +62,22 @@ surface_material_override/0 = SubResource("StandardMaterial3D_6hp2o")
 environment = SubResource("Environment_tta3q")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.43519965, 0.900334, 0, -0.900334, 0.43519965, 0, 11.1042595, 7.4109077)
-light_energy = 3.0
+transform = Transform3D(1, 0, 0, 0, 0.43519965, 0.900334, 0, -0.900334, 0.43519965, 0, 23.10426, 15.410908)
+light_color = Color(1, 1, 0.9411765, 1)
+light_energy = 1.5
+light_angular_distance = 0.5
 
-[node name="Camera" parent="." instance=ExtResource("3_uwrpk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.02231, 0)
-rotation_speed = 180
+[node name="CameraPos" type="Node3D" parent="."]
+script = ExtResource("4_6hp2o")
+min_zoom = -20.0
+max_zoom = 10.0
+
+[node name="CameraRotX" type="Node3D" parent="CameraPos"]
+
+[node name="CameraZoomPivot" type="Node3D" parent="CameraPos/CameraRotX"]
+transform = Transform3D(1, 0, 0, 0, 0.76604444, 0.6427876, 0, -0.6427876, 0.76604444, 0, 15, 20)
+
+[node name="Camera3D" type="Camera3D" parent="CameraPos/CameraRotX/CameraZoomPivot"]
 
 [node name="Label" type="Label" parent="."]
 offset_left = 81.0
