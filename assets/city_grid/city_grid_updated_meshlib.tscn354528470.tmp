@@ -80,5 +80,4 @@ light_color = Color(1, 1, 0.9411765, 1)
 light_energy = 1.5
 light_angular_distance = 0.5
 
-[node name="Websocket" parent="." node_paths=PackedStringArray("hud") instance=ExtResource("6_nploa")]
-hud = NodePath("../HUD")
+[node name="Websocket" parent="." instance=ExtResource("6_nploa")]

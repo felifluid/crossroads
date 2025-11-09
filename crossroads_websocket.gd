@@ -1,5 +1,7 @@
 extends Node
 
+@export var hud: HUD
+
 @onready var websocket_url = "wss://kly6piqk82.execute-api.eu-north-1.amazonaws.com/development?client=%s&username=%s"
 var game_name = "crossroads"
 var username = "test_user"
@@ -54,3 +56,4 @@ func _decode(packet):
 func _handle_message(message) -> void:
 	for game in message.keys():
 		UnlockManager.update_tokens(message[game])
+	hud._update_inventory()

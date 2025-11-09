@@ -1,14 +1,15 @@
 extends Node
 
 
+
 var unlock_db: UnlockDB = preload("res://assets/ui/unlock_menu/prelim_list.tres")
 
 var tokens: Dictionary[String, int] = {
-	"fire": 2,
-	"water": 4,
-	"air": 7,
-	"earth": 5,
-	"mystic": 2
+	"fire": 0,
+	"water": 0,
+	"air": 0,
+	"earth": 0,
+	"mystic": 0
 }
 
 #var unlocks: Dictionary[String, bool] = {
