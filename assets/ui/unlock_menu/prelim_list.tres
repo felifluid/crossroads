@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="UnlockDB" load_steps=31 format=3 uid="uid://cdd16idairvch"]
+[gd_resource type="Resource" script_class="UnlockDB" load_steps=33 format=3 uid="uid://cdd16idairvch"]
 
 [ext_resource type="Script" uid="uid://c1c73a2bsdqym" path="res://assets/ui/unlock_menu/unlock_reqs_item.gd" id="1_brrug"]
 [ext_resource type="Texture2D" uid="uid://qfjicnb5lip5" path="res://assets/tiles/previews/tree.png" id="2_6jjme"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://eadl84sfxvqf" path="res://assets/tiles/previews/roof-point.png" id="13_5ly46"]
 [ext_resource type="Texture2D" uid="uid://5i85top2wdv0" path="res://assets/tiles/previews/windmill.png" id="14_uvvmv"]
 [ext_resource type="Texture2D" uid="uid://bx034vnatn2i1" path="res://assets/tiles/previews/rocks-tall.png" id="15_oifah"]
+[ext_resource type="Texture2D" uid="uid://xcfjq6166p54" path="res://assets/tiles/previews/grass-patch.png" id="16_rbti4"]
 
 [sub_resource type="Resource" id="Resource_brrug"]
 script = ExtResource("1_brrug")
@@ -134,7 +135,15 @@ preview = ExtResource("15_oifah")
 earth = 2
 metadata/_custom_type_script = "uid://c1c73a2bsdqym"
 
+[sub_resource type="Resource" id="Resource_y1qba"]
+script = ExtResource("1_brrug")
+item_name = "grass-patch"
+category = "nature"
+preview = ExtResource("16_rbti4")
+default = true
+metadata/_custom_type_script = "uid://c1c73a2bsdqym"
+
 [resource]
 script = ExtResource("2_8o8lk")
-reqs_list = Array[ExtResource("1_brrug")]([SubResource("Resource_brrug"), SubResource("Resource_8o8lk"), SubResource("Resource_wrn8f"), SubResource("Resource_m5jtm"), SubResource("Resource_bvlyw"), SubResource("Resource_hm0rc"), SubResource("Resource_a7wkb"), SubResource("Resource_hfjt4"), SubResource("Resource_6jjme"), SubResource("Resource_w3jpi"), SubResource("Resource_t8ppi"), SubResource("Resource_kp88c"), SubResource("Resource_ww311"), SubResource("Resource_x5j7f")])
+reqs_list = Array[ExtResource("1_brrug")]([SubResource("Resource_brrug"), SubResource("Resource_8o8lk"), SubResource("Resource_wrn8f"), SubResource("Resource_m5jtm"), SubResource("Resource_bvlyw"), SubResource("Resource_hm0rc"), SubResource("Resource_a7wkb"), SubResource("Resource_hfjt4"), SubResource("Resource_6jjme"), SubResource("Resource_w3jpi"), SubResource("Resource_t8ppi"), SubResource("Resource_kp88c"), SubResource("Resource_ww311"), SubResource("Resource_x5j7f"), SubResource("Resource_y1qba")])
 metadata/_custom_type_script = "uid://y3ulgo7wgu0r"
