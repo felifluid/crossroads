@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cgoq4m72cxwkd"]
+[gd_scene load_steps=6 format=3 uid="uid://cgoq4m72cxwkd"]
 
 [ext_resource type="Script" uid="uid://bsjpi42jvnfb1" path="res://assets/ui/hud/hud.gd" id="1_ecl2q"]
 [ext_resource type="PackedScene" uid="uid://5g2hgv4b8adm" path="res://assets/ui/unlock_menu/unlock_menu.tscn" id="2_bg8cs"]
+[ext_resource type="Resource" uid="uid://cdd16idairvch" path="res://assets/ui/unlock_menu/prelim_list.tres" id="2_qyy74"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ecl2q"]
 bg_color = Color(0.050980393, 0.68235296, 0.7058824, 0.43137255)
@@ -17,6 +18,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ecl2q")
+unlock_reqs = ExtResource("2_qyy74")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1
@@ -25,46 +27,60 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -168.0
-offset_top = -50.0
-offset_right = 168.0
+offset_left = -182.0
+offset_top = -81.0
+offset_right = 182.0
 grow_horizontal = 2
 grow_vertical = 0
 theme = SubResource("Theme_o3rjo")
 
-[node name="Buttons" type="HBoxContainer" parent="PanelContainer"]
+[node name="TabContainer" type="TabContainer" parent="PanelContainer"]
+layout_mode = 2
+current_tab = 0
+
+[node name="Buildings" type="HBoxContainer" parent="PanelContainer/TabContainer"]
 layout_mode = 2
 size_flags_vertical = 8
+metadata/_tab_index = 0
 
-[node name="Buildings" type="HBoxContainer" parent="PanelContainer/Buttons"]
+[node name="Ornaments" type="HBoxContainer" parent="PanelContainer/TabContainer"]
+visible = false
 layout_mode = 2
+size_flags_vertical = 8
+metadata/_tab_index = 1
 
-[node name="VSeparator" type="VSeparator" parent="PanelContainer/Buttons"]
+[node name="Nature" type="HBoxContainer" parent="PanelContainer/TabContainer"]
+visible = false
 layout_mode = 2
-mouse_filter = 1
-theme_override_constants/separation = 12
+size_flags_vertical = 8
+metadata/_tab_index = 2
 
-[node name="Actions" type="HBoxContainer" parent="PanelContainer/Buttons"]
-layout_mode = 2
+[node name="UnlockMenu" parent="." instance=ExtResource("2_bg8cs")]
+visible = false
+layout_mode = 1
 
-[node name="RotatePlus" type="Button" parent="PanelContainer/Buttons/Actions"]
+[node name="Actions" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 843.0
+offset_top = 312.0
+offset_right = 1207.0
+offset_bottom = 362.0
+size_flags_vertical = 8
+
+[node name="RotatePlus" type="Button" parent="Actions"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 mouse_filter = 1
 text = "↺"
 
-[node name="RotateMinus" type="Button" parent="PanelContainer/Buttons/Actions"]
+[node name="RotateMinus" type="Button" parent="Actions"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 mouse_filter = 1
 text = "↻"
 
-[node name="Delete" type="Button" parent="PanelContainer/Buttons/Actions"]
+[node name="Delete" type="Button" parent="Actions"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 mouse_filter = 1
 text = "⛏"
-
-[node name="UnlockMenu" parent="." instance=ExtResource("2_bg8cs")]
-visible = false
-layout_mode = 1
