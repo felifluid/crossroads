@@ -1,100 +1,140 @@
-[gd_resource type="Resource" script_class="UnlockDB" load_steps=23 format=3 uid="uid://cdd16idairvch"]
+[gd_resource type="Resource" script_class="UnlockDB" load_steps=31 format=3 uid="uid://cdd16idairvch"]
 
 [ext_resource type="Script" uid="uid://c1c73a2bsdqym" path="res://assets/ui/unlock_menu/unlock_reqs_item.gd" id="1_brrug"]
+[ext_resource type="Texture2D" uid="uid://qfjicnb5lip5" path="res://assets/tiles/previews/tree.png" id="2_6jjme"]
 [ext_resource type="Script" uid="uid://y3ulgo7wgu0r" path="res://assets/ui/unlock_menu/unlock_db.gd" id="2_8o8lk"]
+[ext_resource type="Texture2D" uid="uid://bsbrm0vuq5cuo" path="res://assets/tiles/previews/tree-high-round.png" id="3_w3jpi"]
+[ext_resource type="Texture2D" uid="uid://dsej15obk3sok" path="res://assets/tiles/previews/tree-crooked.png" id="4_t8ppi"]
+[ext_resource type="Texture2D" uid="uid://cmdal54qwaqyt" path="res://assets/tiles/previews/bench.png" id="5_kp88c"]
+[ext_resource type="Texture2D" uid="uid://dfdft6rarg5xs" path="res://assets/tiles/previews/fence.png" id="6_ww311"]
+[ext_resource type="Texture2D" uid="uid://dt351xlnpf23p" path="res://assets/tiles/previews/fence-gate.png" id="7_x5j7f"]
+[ext_resource type="Texture2D" uid="uid://qug5702jqe88" path="res://assets/tiles/previews/fence-curved.png" id="8_5yxpo"]
+[ext_resource type="Texture2D" uid="uid://bq1fqv0gnwil2" path="res://assets/tiles/previews/gravestone-decorative.png" id="9_rbti4"]
+[ext_resource type="Texture2D" uid="uid://djbsg3owk8gio" path="res://assets/tiles/previews/roof-gable-detail.png" id="10_5yxpo"]
+[ext_resource type="Texture2D" uid="uid://ul820ni676fp" path="res://assets/tiles/previews/rocks.png" id="11_rbti4"]
+[ext_resource type="Texture2D" uid="uid://ck8uir104se40" path="res://assets/tiles/previews/roof-high-gable-top.png" id="12_y1qba"]
+[ext_resource type="Texture2D" uid="uid://eadl84sfxvqf" path="res://assets/tiles/previews/roof-point.png" id="13_5ly46"]
+[ext_resource type="Texture2D" uid="uid://5i85top2wdv0" path="res://assets/tiles/previews/windmill.png" id="14_uvvmv"]
+[ext_resource type="Texture2D" uid="uid://bx034vnatn2i1" path="res://assets/tiles/previews/rocks-tall.png" id="15_oifah"]
 
 [sub_resource type="Resource" id="Resource_brrug"]
 script = ExtResource("1_brrug")
-item_name = "ex1"
-fire = 3
+item_name = "pine"
+category = "nature"
+preview = ExtResource("2_6jjme")
+default = true
 metadata/_custom_type_script = "uid://c1c73a2bsdqym"
 
 [sub_resource type="Resource" id="Resource_8o8lk"]
 script = ExtResource("1_brrug")
-item_name = "ex2"
-fire = 3
-water = 2
-earth = 0
-mystic = 3
+item_name = "tree"
+category = "nature"
+preview = ExtResource("3_w3jpi")
+default = true
 metadata/_custom_type_script = "uid://c1c73a2bsdqym"
 
 [sub_resource type="Resource" id="Resource_wrn8f"]
 script = ExtResource("1_brrug")
-item_name = "ex3"
+item_name = "tree_crooked"
+category = "nature"
+preview = ExtResource("4_t8ppi")
+earth = 1
+mystic = 1
 metadata/_custom_type_script = "uid://c1c73a2bsdqym"
 
 [sub_resource type="Resource" id="Resource_m5jtm"]
 script = ExtResource("1_brrug")
-item_name = "ex4"
+item_name = "bench"
+category = "ornament"
+preview = ExtResource("5_kp88c")
+default = true
 metadata/_custom_type_script = "uid://c1c73a2bsdqym"
 
 [sub_resource type="Resource" id="Resource_bvlyw"]
 script = ExtResource("1_brrug")
-item_name = "ex5"
+item_name = "fence"
+category = "ornament"
+preview = ExtResource("6_ww311")
+default = true
 metadata/_custom_type_script = "uid://c1c73a2bsdqym"
 
 [sub_resource type="Resource" id="Resource_hm0rc"]
 script = ExtResource("1_brrug")
-item_name = "ex6"
+item_name = "fence-gate"
+category = "ornament"
+preview = ExtResource("7_x5j7f")
+default = true
 metadata/_custom_type_script = "uid://c1c73a2bsdqym"
 
 [sub_resource type="Resource" id="Resource_a7wkb"]
 script = ExtResource("1_brrug")
+item_name = "fence-curved"
+category = "ornament"
+preview = ExtResource("8_5yxpo")
+default = true
 metadata/_custom_type_script = "uid://c1c73a2bsdqym"
 
 [sub_resource type="Resource" id="Resource_hfjt4"]
 script = ExtResource("1_brrug")
+item_name = "gravestone"
+category = "ornament"
+preview = ExtResource("9_rbti4")
+fire = 1
+earth = 1
+mystic = 1
 metadata/_custom_type_script = "uid://c1c73a2bsdqym"
 
 [sub_resource type="Resource" id="Resource_6jjme"]
 script = ExtResource("1_brrug")
+item_name = "shed"
+category = "building"
+preview = ExtResource("10_5yxpo")
+water = 1
+earth = 1
 metadata/_custom_type_script = "uid://c1c73a2bsdqym"
 
 [sub_resource type="Resource" id="Resource_w3jpi"]
 script = ExtResource("1_brrug")
+item_name = "rocks"
+category = "nature"
+preview = ExtResource("11_rbti4")
+earth = 1
 metadata/_custom_type_script = "uid://c1c73a2bsdqym"
 
 [sub_resource type="Resource" id="Resource_t8ppi"]
 script = ExtResource("1_brrug")
+item_name = "house1"
+category = "building"
+preview = ExtResource("12_y1qba")
+default = true
 metadata/_custom_type_script = "uid://c1c73a2bsdqym"
 
 [sub_resource type="Resource" id="Resource_kp88c"]
 script = ExtResource("1_brrug")
+item_name = "house2"
+category = "building"
+preview = ExtResource("13_5ly46")
+earth = 1
+air = 1
 metadata/_custom_type_script = "uid://c1c73a2bsdqym"
 
 [sub_resource type="Resource" id="Resource_ww311"]
 script = ExtResource("1_brrug")
+item_name = "windmill"
+category = "building"
+preview = ExtResource("14_uvvmv")
+air = 3
 metadata/_custom_type_script = "uid://c1c73a2bsdqym"
 
 [sub_resource type="Resource" id="Resource_x5j7f"]
 script = ExtResource("1_brrug")
-metadata/_custom_type_script = "uid://c1c73a2bsdqym"
-
-[sub_resource type="Resource" id="Resource_5yxpo"]
-script = ExtResource("1_brrug")
-metadata/_custom_type_script = "uid://c1c73a2bsdqym"
-
-[sub_resource type="Resource" id="Resource_rbti4"]
-script = ExtResource("1_brrug")
-metadata/_custom_type_script = "uid://c1c73a2bsdqym"
-
-[sub_resource type="Resource" id="Resource_y1qba"]
-script = ExtResource("1_brrug")
-metadata/_custom_type_script = "uid://c1c73a2bsdqym"
-
-[sub_resource type="Resource" id="Resource_5ly46"]
-script = ExtResource("1_brrug")
-metadata/_custom_type_script = "uid://c1c73a2bsdqym"
-
-[sub_resource type="Resource" id="Resource_uvvmv"]
-script = ExtResource("1_brrug")
-metadata/_custom_type_script = "uid://c1c73a2bsdqym"
-
-[sub_resource type="Resource" id="Resource_oifah"]
-script = ExtResource("1_brrug")
+item_name = "rocks-tall"
+category = "nature"
+preview = ExtResource("15_oifah")
+earth = 2
 metadata/_custom_type_script = "uid://c1c73a2bsdqym"
 
 [resource]
 script = ExtResource("2_8o8lk")
-reqs_list = Array[ExtResource("1_brrug")]([SubResource("Resource_brrug"), SubResource("Resource_8o8lk"), SubResource("Resource_wrn8f"), SubResource("Resource_m5jtm"), SubResource("Resource_bvlyw"), SubResource("Resource_hm0rc"), SubResource("Resource_a7wkb"), SubResource("Resource_hfjt4"), SubResource("Resource_6jjme"), SubResource("Resource_w3jpi"), SubResource("Resource_t8ppi"), SubResource("Resource_kp88c"), SubResource("Resource_ww311"), SubResource("Resource_x5j7f"), SubResource("Resource_5yxpo"), SubResource("Resource_rbti4"), SubResource("Resource_y1qba"), SubResource("Resource_5ly46"), SubResource("Resource_uvvmv"), SubResource("Resource_oifah"), null, null, null, null, null])
+reqs_list = Array[ExtResource("1_brrug")]([SubResource("Resource_brrug"), SubResource("Resource_8o8lk"), SubResource("Resource_wrn8f"), SubResource("Resource_m5jtm"), SubResource("Resource_bvlyw"), SubResource("Resource_hm0rc"), SubResource("Resource_a7wkb"), SubResource("Resource_hfjt4"), SubResource("Resource_6jjme"), SubResource("Resource_w3jpi"), SubResource("Resource_t8ppi"), SubResource("Resource_kp88c"), SubResource("Resource_ww311"), SubResource("Resource_x5j7f")])
 metadata/_custom_type_script = "uid://y3ulgo7wgu0r"
