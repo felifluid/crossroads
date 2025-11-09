@@ -1,12 +1,11 @@
 extends Node
 
 @onready var websocket_url = "wss://kly6piqk82.execute-api.eu-north-1.amazonaws.com/development?client=%s&username=%s"
-@export var game_name = "crossroads"
-@export var element1 = "fire"
-@export var element2 = "water"
-@export var element3 = "earth"
+var game_name = "crossroads"
 var username = "test_user"
-
+var socket : WebSocketPeer
+var current_state : WebSocketPeer.State = WebSocketPeer.STATE_CLOSED
+var ping_timer := 0.0
 var payload_crossroads = {
 			"action": "fetch",
 			"message": {
@@ -14,20 +13,6 @@ var payload_crossroads = {
 				'username' : username
 			}
 		}
-
-var payload_other = {
-			"action": "unlock",
-			"message": {
-				'game_name' : game_name,
-				'element1' : element1,
-				'element2' : element2,
-				'element3' : element3
-			}
-		}
-
-var socket : WebSocketPeer
-var current_state : WebSocketPeer.State = WebSocketPeer.STATE_CLOSED
-var ping_timer := 0.0
 
 func _ready() -> void:
 	socket = WebSocketPeer.new()
@@ -44,13 +29,28 @@ func _process(delta: float) -> void:
 			socket.send_text(JSON.stringify(payload_crossroads))
 	if socket.get_ready_state() == WebSocketPeer.STATE_OPEN:
 		while socket.get_available_packet_count() > 0:
-			print("packet arrived!")
 			var packet = socket.get_packet().get_string_from_utf8()
-			var json = JSON.new()
-			var error = json.parse(packet)
-			var message
-			if error != OK:
-				message = packet
-			else:
-				message = json.data
-				print("message received: ", JSON.stringify(message, "\t"))
+			var message = _decode(packet)
+			if message == null:
+				continue
+			print("message received: ", JSON.stringify(message, "\t"))
+			if message is Dictionary:
+				_handle_message(message)
+
+func _decode(packet):
+	var message
+	var json = JSON.new()
+	var error = json.parse(packet)
+	if error != OK:
+		message = packet
+		return 0
+	else:
+		message = json.data
+	if message is String:
+		message = _decode(message)
+	else:
+		return message
+	
+func _handle_message(message) -> void:
+	for game in message.keys():
+		UnlockManager.update_tokens(message[game])
