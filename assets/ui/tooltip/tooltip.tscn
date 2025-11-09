@@ -1,0 +1,120 @@
+[gd_scene load_steps=3 format=3 uid="uid://cv3jnyyxftmd3"]
+
+[ext_resource type="Script" uid="uid://f4e3w8i1hllg" path="res://assets/ui/tooltip/tooltip.gd" id="1_f26aw"]
+[ext_resource type="Texture2D" uid="uid://c3fpgp1qqn2gt" path="res://assets/ui/tooltip/air.jpg" id="2_ed4ph"]
+
+[node name="Control" type="Control"]
+custom_minimum_size = Vector2(300, 120)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_f26aw")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(300, 120)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.266
+anchor_bottom = 0.208
+offset_right = -6.432007
+offset_bottom = -14.783997
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Test"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Earth" type="VBoxContainer" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer/HBoxContainer/Earth"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("2_ed4ph")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/Earth"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "5"
+horizontal_alignment = 1
+
+[node name="Air" type="VBoxContainer" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer/HBoxContainer/Air"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("2_ed4ph")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/Air"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "5"
+horizontal_alignment = 1
+
+[node name="Water" type="VBoxContainer" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer/HBoxContainer/Water"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("2_ed4ph")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/Water"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "5"
+horizontal_alignment = 1
+
+[node name="Fire" type="VBoxContainer" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer/HBoxContainer/Fire"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("2_ed4ph")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/Fire"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "5"
+horizontal_alignment = 1
+
+[node name="Mystic" type="VBoxContainer" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer/HBoxContainer/Mystic"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("2_ed4ph")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/Mystic"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "5"
+horizontal_alignment = 1

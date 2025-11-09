@@ -4,7 +4,7 @@ extends Node
 var tokens: Dictionary[String, int] = {
 	"fire": 2,
 	"water": 4,
-	"air": 0,
+	"air": 7,
 	"earth": 5,
 	"mystic": 2
 }
@@ -39,7 +39,12 @@ var unlocks: Array[bool] = [
 	false,
 	false,
 	false,
-]
+	]
+
+
+func unlock_new_object(idx: int):
+	unlocks[idx] = true
+
 
 
 func update_tokens(game):

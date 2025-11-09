@@ -59,7 +59,8 @@ func _input(event: InputEvent) -> void:
 				grid_map.set_cell_item(cell_pos, GridMap.INVALID_CELL_ITEM, rotation_counter)
 	elif event is InputEventMouseMotion:
 		var cell_pos = _get_cell_coords()
-		$Label.text = str(cell_pos)
+		if cell_pos == Vector3i.ONE * -1000:
+			return
 		ghost_mesh.position = cell_pos as Vector3 * CELL_SIZE + mesh_offset
 	elif event.is_action_pressed("rotate_object_plus"):
 		_increment_rotation()
@@ -71,6 +72,8 @@ func _input(event: InputEvent) -> void:
 func _get_cell_coords():
 	var collision_point = get_cursor_world_position()
 	#print("world pos: ", collision_point)
+	if not collision_point:
+		return (Vector3.ONE * -1000) as Vector3i
 	
 	var cell_pos := grid_map.local_to_map(collision_point)
 	#print("corresponds to cell ", cell_pos)

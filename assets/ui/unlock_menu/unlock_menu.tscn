@@ -35,61 +35,76 @@ offset_right = -10.0
 grow_horizontal = 0
 grow_vertical = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Inventory"]
+[node name="Water" type="HBoxContainer" parent="Inventory"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Aspect" type="Label" parent="Inventory/HBoxContainer"]
+[node name="Aspect" type="Label" parent="Inventory/Water"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Water"
 
-[node name="Amount" type="Label" parent="Inventory/HBoxContainer"]
+[node name="Amount" type="Label" parent="Inventory/Water"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "5"
 horizontal_alignment = 2
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="Inventory"]
+[node name="Fire" type="HBoxContainer" parent="Inventory"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Aspect" type="Label" parent="Inventory/HBoxContainer2"]
+[node name="Aspect" type="Label" parent="Inventory/Fire"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Fire"
 
-[node name="Amount" type="Label" parent="Inventory/HBoxContainer2"]
+[node name="Amount" type="Label" parent="Inventory/Fire"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "5"
 horizontal_alignment = 2
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="Inventory"]
+[node name="Earth" type="HBoxContainer" parent="Inventory"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Aspect" type="Label" parent="Inventory/HBoxContainer3"]
+[node name="Aspect" type="Label" parent="Inventory/Earth"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Earth"
 
-[node name="Amount" type="Label" parent="Inventory/HBoxContainer3"]
+[node name="Amount" type="Label" parent="Inventory/Earth"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "5"
 horizontal_alignment = 2
 
-[node name="HBoxContainer4" type="HBoxContainer" parent="Inventory"]
+[node name="Air" type="HBoxContainer" parent="Inventory"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Aspect" type="Label" parent="Inventory/HBoxContainer4"]
+[node name="Aspect" type="Label" parent="Inventory/Air"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Wind"
+text = "Air"
 
-[node name="Amount" type="Label" parent="Inventory/HBoxContainer4"]
+[node name="Amount" type="Label" parent="Inventory/Air"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "5"
+horizontal_alignment = 2
+
+[node name="Mystic" type="HBoxContainer" parent="Inventory"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Aspect" type="Label" parent="Inventory/Mystic"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Mystic"
+
+[node name="Amount" type="Label" parent="Inventory/Mystic"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "5"
