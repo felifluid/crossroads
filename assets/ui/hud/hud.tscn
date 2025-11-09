@@ -1,6 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cgoq4m72cxwkd"]
+[gd_scene load_steps=8 format=3 uid="uid://cgoq4m72cxwkd"]
 
 [ext_resource type="Script" uid="uid://bsjpi42jvnfb1" path="res://assets/ui/hud/hud.gd" id="1_ecl2q"]
+[ext_resource type="PackedScene" uid="uid://5g2hgv4b8adm" path="res://assets/ui/unlock_menu/unlock_menu.tscn" id="2_bg8cs"]
+[ext_resource type="Texture2D" uid="uid://lk8nt58e13d6" path="res://assets/ui/icons/rotate_ccw.png" id="2_nbtxk"]
+[ext_resource type="Texture2D" uid="uid://btbfe4f5o7k8p" path="res://assets/ui/icons/rotate_cw.png" id="3_oelvc"]
+[ext_resource type="Texture2D" uid="uid://kha0ijk4jusu" path="res://assets/ui/icons/tool_pickaxe.png" id="4_vb1o2"]
 [ext_resource type="Resource" uid="uid://cdd16idairvch" path="res://assets/ui/unlock_menu/prelim_list.tres" id="2_qyy74"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ecl2q"]
@@ -71,19 +75,22 @@ metadata/_edit_use_anchors_ = true
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 mouse_filter = 1
-text = "↺"
+icon = ExtResource("2_nbtxk")
+flat = true
 
 [node name="RotateMinus" type="Button" parent="Actions"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 mouse_filter = 1
-text = "↻"
+icon = ExtResource("3_oelvc")
+flat = true
 
 [node name="Delete" type="Button" parent="Actions"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 mouse_filter = 1
-text = "⛏"
+icon = ExtResource("4_vb1o2")
+flat = true
 
 [node name="Inventory" type="VBoxContainer" parent="."]
 layout_mode = 1
