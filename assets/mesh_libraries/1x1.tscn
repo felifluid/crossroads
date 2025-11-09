@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://doukld70nkb4h"]
+[gd_scene load_steps=12 format=3 uid="uid://doukld70nkb4h"]
 
 [ext_resource type="PackedScene" uid="uid://d3uca7mvjjvi" path="res://assets/tiles/1x1/pine.tscn" id="1_3swvn"]
 [ext_resource type="PackedScene" uid="uid://cwiywmoqn8uif" path="res://assets/tiles/1x1/tree.tscn" id="2_uup71"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://tmbyg1crv4a0" path="res://assets/tiles/1x1/fence-curve.tscn" id="8_fhock"]
 [ext_resource type="PackedScene" uid="uid://cov55fo0m0fy1" path="res://assets/tiles/1x1/gravestone.tscn" id="9_fhock"]
 [ext_resource type="PackedScene" uid="uid://6t2oo2v4xhgb" path="res://assets/tiles/1x1/shed.tscn" id="9_naahw"]
+[ext_resource type="PackedScene" uid="uid://celxccg078tsm" path="res://assets/tiles/1x1/grass-patch.tscn" id="11_6j5lk"]
 [ext_resource type="PackedScene" uid="uid://cx4k5vlbivf0q" path="res://assets/tiles/1x1/rocks.tscn" id="11_naahw"]
 
 [node name="Node3D" type="Node3D"]
@@ -43,3 +44,6 @@ skeleton = NodePath("../fence-curved")
 
 [node name="rocks" parent="." instance=ExtResource("11_naahw")]
 transform = Transform3D(0.9006072, 0, 0.43463388, 0, 1, 0, -0.43463388, 0, 0.9006072, 0.5, 0, -0.5)
+
+[node name="grass-patch" parent="." instance=ExtResource("11_6j5lk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -0.5)
