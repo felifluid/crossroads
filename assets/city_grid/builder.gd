@@ -15,7 +15,7 @@ enum modes {
 
 var CELL_SIZE = 1
 
-@export var mesh_offset = Vector3(CELL_SIZE as float / 2, 0, CELL_SIZE as float / 2)
+@export var mesh_offset = Vector3(CELL_SIZE as float / 2, 0, CELL_SIZE as float / 2): get = get_mesh_offset
 
 var active_mesh: Mesh = null
 var active_mesh_idx: int = 0
@@ -48,6 +48,9 @@ func _process(_delta: float) -> void:
 	#NOTE: crungo implementation
 	ghost_mesh.visible = not GameManager.placing_locked
 
+
+func get_mesh_offset():
+	return Vector3(CELL_SIZE as float / 2, 0, CELL_SIZE as float / 2)
 
 func _input(event: InputEvent) -> void:
 	if hud.in_menu:
@@ -83,11 +86,11 @@ func _get_cell_coords():
 		return (Vector3.ONE * -1000) as Vector3i
 	
 	var cell_pos := active_grid.local_to_map(collision_point)
-	print("corresponds to cell ", cell_pos)
+	#print("corresponds to cell ", cell_pos)
 	
 	#cell_pos.x *= CELL_SIZE
 	#cell_pos.z *= CELL_SIZE
-	#cell_pos.y = 0
+	cell_pos.y = 0
 	
 	return cell_pos
 

@@ -8,10 +8,16 @@
 [node name="Node3D" type="Node3D"]
 
 [node name="house1" parent="." instance=ExtResource("1_5gpro")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, -1.5)
+visible = false
 
 [node name="house2" parent="." instance=ExtResource("2_q03mk")]
-transform = Transform3D(0.9232706, 0, 0.3841503, 0, 1, 0, -0.3841503, 0, 0.9232706, 0.50691295, 0, 0.54943705)
+transform = Transform3D(0.9232706, 0, 0.3841503, 0, 1, 0, -0.3841503, 0, 0.9232706, 1.5, 0, -1.5)
+visible = false
 
 [node name="windmill" parent="." instance=ExtResource("2_5gpro")]
+transform = Transform3D(0.9057464, 0, -0.4238201, 0, 1, 0, 0.4238201, 0, 0.9057464, 1.5, 0, -1.5)
+visible = false
 
 [node name="rocks-tall" parent="." instance=ExtResource("3_hde5k")]
+transform = Transform3D(3.3950863, 0, 0, 0, 3.0239515, 0, 0, 0, 3.7852397, 1.5, 0, -1.5)

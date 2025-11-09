@@ -1,16 +1,29 @@
-[gd_scene load_steps=8 format=3 uid="uid://cx3nae2kf70ob"]
+[gd_scene load_steps=12 format=3 uid="uid://cx3nae2kf70ob"]
 
 [ext_resource type="Script" uid="uid://bji6l7e8uuyya" path="res://assets/city_grid/builder.gd" id="1_l8yio"]
 [ext_resource type="PackedScene" uid="uid://cgoq4m72cxwkd" path="res://assets/ui/hud/hud.tscn" id="2_nploa"]
 [ext_resource type="MeshLibrary" uid="uid://c3o5n5wcf0a7g" path="res://assets/mesh_libraries/1x1.tres" id="3_l8yio"]
 [ext_resource type="MeshLibrary" uid="uid://crs2dm52j7tf" path="res://assets/mesh_libraries/3x3.tres" id="4_0gnr7"]
-[ext_resource type="PackedScene" uid="uid://l42ksnikgke3" path="res://assets/camera/camera.tscn" id="5_dt4dh"]
+[ext_resource type="Script" uid="uid://s4gwhcir1roa" path="res://assets/camera/rts_camera.gd" id="5_l8yio"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0p8ms"]
+specular_mode = 1
+albedo_color = Color(0.2901961, 0.7411765, 0.5176471, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5cipg"]
 size = Vector3(20, 1, 20)
 
 [sub_resource type="BoxMesh" id="BoxMesh_uwrpk"]
 size = Vector3(2, 0.04, 2)
+
+[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_l8yio"]
+
+[sub_resource type="Sky" id="Sky_6hp2o"]
+sky_material = SubResource("PhysicalSkyMaterial_l8yio")
+
+[sub_resource type="Environment" id="Environment_nploa"]
+background_mode = 2
+sky = SubResource("Sky_6hp2o")
 
 [node name="CityGrid" type="Node3D"]
 script = ExtResource("1_l8yio")
@@ -20,16 +33,19 @@ script = ExtResource("1_l8yio")
 [node name="GridMap1x1" type="GridMap" parent="."]
 mesh_library = ExtResource("3_l8yio")
 cell_size = Vector3(1, 1, 1)
+cell_center_y = false
 metadata/_editor_floor_ = Vector3(0, 0, 0)
 
 [node name="GridMap3x3" type="GridMap" parent="."]
 mesh_library = ExtResource("4_0gnr7")
 cell_size = Vector3(3, 3, 3)
+cell_center_y = false
 metadata/_editor_floor_ = Vector3(0, 4, 0)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
-size = Vector3(20, 1, 20)
+size = Vector3(64, 1, 64)
+material = SubResource("StandardMaterial3D_0p8ms")
 
 [node name="Ground" type="StaticBody3D" parent="CSGBox3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
@@ -38,14 +54,27 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 shape = SubResource("BoxShape3D_5cipg")
 
-[node name="Camera" parent="." instance=ExtResource("5_dt4dh")]
-transform = Transform3D(1, 0, 0, 0, 0.8655887, 0.50075555, 0, -0.50075555, 0.8655887, 0, 1.7780347, 10.877937)
-
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.3848505, 0)
-light_energy = 6.113
-omni_range = 24.367054
-
 [node name="GhostMesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.5, 1)
 mesh = SubResource("BoxMesh_uwrpk")
+
+[node name="CameraPos" type="Node3D" parent="."]
+script = ExtResource("5_l8yio")
+min_zoom = -20.0
+max_zoom = 10.0
+
+[node name="CameraRotX" type="Node3D" parent="CameraPos"]
+
+[node name="CameraZoomPivot" type="Node3D" parent="CameraPos/CameraRotX"]
+transform = Transform3D(1, 0, 0, 0, 0.76604444, 0.6427876, 0, -0.6427876, 0.76604444, 0, 15, 20)
+
+[node name="Camera3D" type="Camera3D" parent="CameraPos/CameraRotX/CameraZoomPivot"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_nploa")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.43519965, 0.900334, 0, -0.900334, 0.43519965, 0, 23.10426, 15.410908)
+light_color = Color(1, 1, 0.9411765, 1)
+light_energy = 1.5
+light_angular_distance = 0.5

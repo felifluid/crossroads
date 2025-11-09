@@ -1,7 +1,73 @@
-[gd_scene load_steps=3 format=3 uid="uid://cv3jnyyxftmd3"]
+[gd_scene load_steps=13 format=3 uid="uid://cv3jnyyxftmd3"]
 
 [ext_resource type="Script" uid="uid://f4e3w8i1hllg" path="res://assets/ui/tooltip/tooltip.gd" id="1_f26aw"]
-[ext_resource type="Texture2D" uid="uid://c3fpgp1qqn2gt" path="res://assets/ui/tooltip/air.jpg" id="2_ed4ph"]
+[ext_resource type="Shader" uid="uid://brah2006fp7mh" path="res://color.gdshader" id="2_ed4ph"]
+
+[sub_resource type="Shader" id="Shader_ed4ph"]
+code = "shader_type canvas_item;
+
+
+uniform vec4 color = vec4(1.0);
+
+void fragment() {
+	COLOR = color;
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tlwmm"]
+shader = SubResource("Shader_ed4ph")
+shader_parameter/color = Vector4(1, 0, 0, 1)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_tlwmm"]
+
+[sub_resource type="Shader" id="Shader_ot5k1"]
+code = "shader_type canvas_item;
+
+
+uniform vec4 color = vec4(1.0);
+
+void fragment() {
+	COLOR = color;
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_aunao"]
+shader = SubResource("Shader_ot5k1")
+shader_parameter/color = Vector4(0, 0, 1, 1)
+
+[sub_resource type="Shader" id="Shader_tlwmm"]
+code = "shader_type canvas_item;
+
+
+uniform vec4 color = vec4(1.0);
+
+void fragment() {
+	COLOR = color;
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6fkd7"]
+shader = SubResource("Shader_tlwmm")
+shader_parameter/color = Vector4(0.251, 0.878, 0.816, 1)
+
+[sub_resource type="Shader" id="Shader_aunao"]
+code = "shader_type canvas_item;
+
+
+uniform vec4 color = vec4(1.0);
+
+void fragment() {
+	COLOR = color;
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ujpjn"]
+shader = SubResource("Shader_aunao")
+shader_parameter/color = Vector4(0.537, 0.318, 0.161, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ot5k1"]
+shader = ExtResource("2_ed4ph")
+shader_parameter/color = Vector4(0.749, 0.251, 0.749, 1)
 
 [node name="Control" type="Control"]
 custom_minimum_size = Vector2(300, 120)
@@ -39,9 +105,10 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer/HBoxContainer/Earth"]
+material = SubResource("ShaderMaterial_tlwmm")
 layout_mode = 2
 size_flags_vertical = 3
-texture = ExtResource("2_ed4ph")
+texture = SubResource("PlaceholderTexture2D_tlwmm")
 expand_mode = 1
 stretch_mode = 4
 
@@ -56,9 +123,10 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer/HBoxContainer/Air"]
+material = SubResource("ShaderMaterial_aunao")
 layout_mode = 2
 size_flags_vertical = 3
-texture = ExtResource("2_ed4ph")
+texture = SubResource("PlaceholderTexture2D_tlwmm")
 expand_mode = 1
 stretch_mode = 4
 
@@ -73,9 +141,10 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer/HBoxContainer/Water"]
+material = SubResource("ShaderMaterial_6fkd7")
 layout_mode = 2
 size_flags_vertical = 3
-texture = ExtResource("2_ed4ph")
+texture = SubResource("PlaceholderTexture2D_tlwmm")
 expand_mode = 1
 stretch_mode = 4
 
@@ -90,9 +159,10 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer/HBoxContainer/Fire"]
+material = SubResource("ShaderMaterial_ujpjn")
 layout_mode = 2
 size_flags_vertical = 3
-texture = ExtResource("2_ed4ph")
+texture = SubResource("PlaceholderTexture2D_tlwmm")
 expand_mode = 1
 stretch_mode = 4
 
@@ -107,9 +177,10 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer/HBoxContainer/Mystic"]
+material = SubResource("ShaderMaterial_ot5k1")
 layout_mode = 2
 size_flags_vertical = 3
-texture = ExtResource("2_ed4ph")
+texture = SubResource("PlaceholderTexture2D_tlwmm")
 expand_mode = 1
 stretch_mode = 4
 
