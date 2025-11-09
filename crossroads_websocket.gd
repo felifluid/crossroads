@@ -3,11 +3,13 @@ extends Node
 @export var hud: HUD
 
 @onready var websocket_url = "wss://kly6piqk82.execute-api.eu-north-1.amazonaws.com/development?client=%s&username=%s"
+@onready var control = $"../Control"
+@onready var text_edit = $"../Control/VBoxContainer/TextEdit"
 var game_name = "crossroads"
-var username = "test_user"
 var socket : WebSocketPeer
 var current_state : WebSocketPeer.State = WebSocketPeer.STATE_CLOSED
 var ping_timer := 0.0
+var username = "default_user"
 var payload_crossroads = {
 			"action": "fetch",
 			"message": {
@@ -18,6 +20,10 @@ var payload_crossroads = {
 
 func _ready() -> void:
 	socket = WebSocketPeer.new()
+	hud.hide()
+	
+func connect_to_socket() -> void:
+	payload_crossroads['message']['username'] = username
 	print("connecting to websocket")
 	socket.connect_to_url(websocket_url % [game_name, username])
 	
@@ -57,3 +63,9 @@ func _handle_message(message) -> void:
 	for game in message.keys():
 		UnlockManager.update_tokens(message[game])
 	hud._update_inventory()
+
+func _on_button_pressed() -> void:
+	username = text_edit.text
+	connect_to_socket()
+	control.hide()
+	hud.show()
