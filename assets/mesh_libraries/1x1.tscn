@@ -1,8 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://doukld70nkb4h"]
+[gd_scene load_steps=11 format=3 uid="uid://doukld70nkb4h"]
 
 [ext_resource type="PackedScene" uid="uid://d3uca7mvjjvi" path="res://assets/tiles/1x1/pine.tscn" id="1_3swvn"]
 [ext_resource type="PackedScene" uid="uid://cwiywmoqn8uif" path="res://assets/tiles/1x1/tree.tscn" id="2_uup71"]
-[ext_resource type="PackedScene" uid="uid://ckjy4c3s0cc68" path="res://assets/tiles/1x1/tree_corner.tscn" id="3_ik16r"]
 [ext_resource type="PackedScene" uid="uid://dsgk4n13i10lc" path="res://assets/tiles/1x1/tree_crooked.tscn" id="4_s65m3"]
 [ext_resource type="PackedScene" uid="uid://dpm1tbaabyvfn" path="res://assets/tiles/1x1/bench.tscn" id="5_wbqjy"]
 [ext_resource type="PackedScene" uid="uid://dea4wwvuy8yf0" path="res://assets/tiles/1x1/fence.tscn" id="6_nd6ih"]
@@ -15,43 +14,32 @@
 [node name="Node3D" type="Node3D"]
 
 [node name="pine" parent="." instance=ExtResource("1_3swvn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.50203466, 0, -0.5325793)
-visible = false
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -0.5)
 
 [node name="tree" parent="." instance=ExtResource("2_uup71")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5113902, 0, -0.51903963)
-visible = false
-
-[node name="tree_corner" parent="." instance=ExtResource("3_ik16r")]
-transform = Transform3D(0.81856096, 0, -0.5744196, 0, 1, 0, 0.5744196, 0, 0.81856096, 0.5093825, 0, -0.49579966)
-visible = false
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -0.5)
 
 [node name="tree_crooked" parent="." instance=ExtResource("4_s65m3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.51462805, 0, -0.52559185)
-visible = false
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -0.5)
 
 [node name="bench" parent="." instance=ExtResource("5_wbqjy")]
-transform = Transform3D(0.9953962, 0, -0.09584575, 0, 1, 0, 0.09584575, 0, 0.9953962, 0.53444004, 0, -0.47691226)
-visible = false
+transform = Transform3D(0.9953962, 0, -0.09584575, 0, 1, 0, 0.09584575, 0, 0.9953962, 0.5, 0, -0.5)
 
 [node name="fence" parent="." instance=ExtResource("6_nd6ih")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.51381284)
-visible = false
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -0.5)
 
 [node name="fence-gate" parent="." instance=ExtResource("7_dup88")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.4982696)
-visible = false
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -0.5)
 
 [node name="fence-curved" parent="." instance=ExtResource("8_fhock")]
-visible = false
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -0.5)
 
 [node name="gravestone" parent="." instance=ExtResource("9_fhock")]
-transform = Transform3D(0.9019607, 0, 0.43181813, 0, 0.8, 0, -0.43181813, 0, 0.9019607, 0, 0, 0)
-visible = false
+transform = Transform3D(0.9019607, 0, 0.43181813, 0, 0.8, 0, -0.43181813, 0, 0.9019607, 0.5, 0, -0.5)
 
 [node name="shed" parent="." instance=ExtResource("9_naahw")]
-transform = Transform3D(1, 0, 0, 0, 0.8, 0, 0, 0, 1, 0.4929192, 0, -0.49940512)
+transform = Transform3D(1, 0, 0, 0, 0.8, 0, 0, 0, 1, 0.5, 0, -0.5)
 skeleton = NodePath("../fence-curved")
 
 [node name="rocks" parent="." instance=ExtResource("11_naahw")]
-visible = false
+transform = Transform3D(0.9006072, 0, 0.43463388, 0, 1, 0, -0.43463388, 0, 0.9006072, 0.5, 0, -0.5)
