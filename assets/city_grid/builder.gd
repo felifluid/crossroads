@@ -78,7 +78,8 @@ func _input(event: InputEvent) -> void:
 func _is_placing_locked():
 	return (
 		hud.tab_container.get_global_rect().has_point(get_viewport().get_mouse_position())
-	or hud.actions.get_global_rect().has_point(get_viewport().get_mouse_position()))
+	or hud.actions.get_global_rect().has_point(get_viewport().get_mouse_position())
+	or $Control.visible)
 
 
 func _get_cell_coords():
