@@ -21,6 +21,7 @@ var hovered_obj: int = 0
 @onready var nature: HBoxContainer = $PanelContainer/TabContainer/Nature
 #@onready var unlock_menu: UnlockMenu = $UnlockMenu
 @onready var inventory: VBoxContainer = $Inventory
+@onready var actions: HBoxContainer = $Actions
 
 
 func _ready() -> void:

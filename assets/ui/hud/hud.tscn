@@ -1,11 +1,10 @@
 [gd_scene load_steps=8 format=3 uid="uid://cgoq4m72cxwkd"]
 
 [ext_resource type="Script" uid="uid://bsjpi42jvnfb1" path="res://assets/ui/hud/hud.gd" id="1_ecl2q"]
-[ext_resource type="PackedScene" uid="uid://5g2hgv4b8adm" path="res://assets/ui/unlock_menu/unlock_menu.tscn" id="2_bg8cs"]
 [ext_resource type="Texture2D" uid="uid://lk8nt58e13d6" path="res://assets/ui/icons/rotate_ccw.png" id="2_nbtxk"]
+[ext_resource type="Resource" uid="uid://cdd16idairvch" path="res://assets/ui/unlock_menu/prelim_list.tres" id="2_qyy74"]
 [ext_resource type="Texture2D" uid="uid://btbfe4f5o7k8p" path="res://assets/ui/icons/rotate_cw.png" id="3_oelvc"]
 [ext_resource type="Texture2D" uid="uid://kha0ijk4jusu" path="res://assets/ui/icons/tool_pickaxe.png" id="4_vb1o2"]
-[ext_resource type="Resource" uid="uid://cdd16idairvch" path="res://assets/ui/unlock_menu/prelim_list.tres" id="2_qyy74"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ecl2q"]
 bg_color = Color(0.050980393, 0.68235296, 0.7058824, 0.43137255)
@@ -60,16 +59,17 @@ metadata/_tab_index = 2
 
 [node name="Actions" type="HBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.6605903
-anchor_top = 0.9228395
-anchor_right = 0.7977431
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -158.0
+offset_top = -50.0
 grow_horizontal = 0
 grow_vertical = 0
 size_flags_horizontal = 8
 size_flags_vertical = 8
-metadata/_edit_use_anchors_ = true
 
 [node name="RotatePlus" type="Button" parent="Actions"]
 custom_minimum_size = Vector2(50, 50)
@@ -77,6 +77,7 @@ layout_mode = 2
 mouse_filter = 1
 icon = ExtResource("2_nbtxk")
 flat = true
+expand_icon = true
 
 [node name="RotateMinus" type="Button" parent="Actions"]
 custom_minimum_size = Vector2(50, 50)
@@ -84,6 +85,7 @@ layout_mode = 2
 mouse_filter = 1
 icon = ExtResource("3_oelvc")
 flat = true
+expand_icon = true
 
 [node name="Delete" type="Button" parent="Actions"]
 custom_minimum_size = Vector2(50, 50)
@@ -91,6 +93,7 @@ layout_mode = 2
 mouse_filter = 1
 icon = ExtResource("4_vb1o2")
 flat = true
+expand_icon = true
 
 [node name="Inventory" type="VBoxContainer" parent="."]
 layout_mode = 1
