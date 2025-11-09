@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cgoq4m72cxwkd"]
+[gd_scene load_steps=5 format=3 uid="uid://cgoq4m72cxwkd"]
 
 [ext_resource type="Script" uid="uid://bsjpi42jvnfb1" path="res://assets/ui/hud/hud.gd" id="1_ecl2q"]
+[ext_resource type="PackedScene" uid="uid://5g2hgv4b8adm" path="res://assets/ui/unlock_menu/unlock_menu.tscn" id="2_bg8cs"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ecl2q"]
 bg_color = Color(0.050980393, 0.68235296, 0.7058824, 0.43137255)
@@ -63,3 +64,7 @@ custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 mouse_filter = 1
 text = "⛏"
+
+[node name="UnlockMenu" parent="." instance=ExtResource("2_bg8cs")]
+visible = false
+layout_mode = 1

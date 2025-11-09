@@ -6,12 +6,15 @@ signal rotate_plus_pressed
 signal rotate_minus_pressed
 signal delete_pressed()
 
+var in_menu: bool = false
+
 @onready var buildings: HBoxContainer = $PanelContainer/Buttons/Buildings
 @onready var actions: HBoxContainer = $PanelContainer/Buttons/Actions
 @onready var button_rotate_plus: Button = $PanelContainer/Buttons/Actions/RotatePlus
 @onready var button_rotate_minus: Button = $PanelContainer/Buttons/Actions/RotateMinus
 @onready var button_delete: Button = $PanelContainer/Buttons/Actions/Delete
 @onready var panel_container: PanelContainer = $PanelContainer
+@onready var unlock_menu: UnlockMenu = $UnlockMenu
 
 
 func _ready() -> void:
@@ -25,6 +28,17 @@ func _ready() -> void:
 	button_rotate_plus.pressed.connect(func(): rotate_plus_pressed.emit())
 	button_rotate_minus.pressed.connect(func(): rotate_minus_pressed.emit())
 	button_delete.pressed.connect(_on_button_delete_pressed)
+
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_cancel"):
+		_toggle_unlock_menu()
+
+
+func _toggle_unlock_menu():
+	in_menu = !in_menu
+	panel_container.visible = !panel_container.visible
+	unlock_menu.visible = !unlock_menu.visible
 
 
 func init_buttons(mesh_library: MeshLibrary, mesh_library_size: int):

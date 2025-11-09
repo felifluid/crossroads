@@ -1,0 +1,100 @@
+[gd_resource type="Resource" script_class="UnlockDB" load_steps=23 format=3 uid="uid://cdd16idairvch"]
+
+[ext_resource type="Script" uid="uid://c1c73a2bsdqym" path="res://assets/ui/unlock_menu/unlock_reqs_item.gd" id="1_brrug"]
+[ext_resource type="Script" uid="uid://y3ulgo7wgu0r" path="res://assets/ui/unlock_menu/unlock_db.gd" id="2_8o8lk"]
+
+[sub_resource type="Resource" id="Resource_brrug"]
+script = ExtResource("1_brrug")
+item_name = "ex1"
+fire = 3
+metadata/_custom_type_script = "uid://c1c73a2bsdqym"
+
+[sub_resource type="Resource" id="Resource_8o8lk"]
+script = ExtResource("1_brrug")
+item_name = "ex2"
+fire = 3
+water = 2
+earth = 0
+mystic = 3
+metadata/_custom_type_script = "uid://c1c73a2bsdqym"
+
+[sub_resource type="Resource" id="Resource_wrn8f"]
+script = ExtResource("1_brrug")
+item_name = "ex3"
+metadata/_custom_type_script = "uid://c1c73a2bsdqym"
+
+[sub_resource type="Resource" id="Resource_m5jtm"]
+script = ExtResource("1_brrug")
+item_name = "ex4"
+metadata/_custom_type_script = "uid://c1c73a2bsdqym"
+
+[sub_resource type="Resource" id="Resource_bvlyw"]
+script = ExtResource("1_brrug")
+item_name = "ex5"
+metadata/_custom_type_script = "uid://c1c73a2bsdqym"
+
+[sub_resource type="Resource" id="Resource_hm0rc"]
+script = ExtResource("1_brrug")
+item_name = "ex6"
+metadata/_custom_type_script = "uid://c1c73a2bsdqym"
+
+[sub_resource type="Resource" id="Resource_a7wkb"]
+script = ExtResource("1_brrug")
+metadata/_custom_type_script = "uid://c1c73a2bsdqym"
+
+[sub_resource type="Resource" id="Resource_hfjt4"]
+script = ExtResource("1_brrug")
+metadata/_custom_type_script = "uid://c1c73a2bsdqym"
+
+[sub_resource type="Resource" id="Resource_6jjme"]
+script = ExtResource("1_brrug")
+metadata/_custom_type_script = "uid://c1c73a2bsdqym"
+
+[sub_resource type="Resource" id="Resource_w3jpi"]
+script = ExtResource("1_brrug")
+metadata/_custom_type_script = "uid://c1c73a2bsdqym"
+
+[sub_resource type="Resource" id="Resource_t8ppi"]
+script = ExtResource("1_brrug")
+metadata/_custom_type_script = "uid://c1c73a2bsdqym"
+
+[sub_resource type="Resource" id="Resource_kp88c"]
+script = ExtResource("1_brrug")
+metadata/_custom_type_script = "uid://c1c73a2bsdqym"
+
+[sub_resource type="Resource" id="Resource_ww311"]
+script = ExtResource("1_brrug")
+metadata/_custom_type_script = "uid://c1c73a2bsdqym"
+
+[sub_resource type="Resource" id="Resource_x5j7f"]
+script = ExtResource("1_brrug")
+metadata/_custom_type_script = "uid://c1c73a2bsdqym"
+
+[sub_resource type="Resource" id="Resource_5yxpo"]
+script = ExtResource("1_brrug")
+metadata/_custom_type_script = "uid://c1c73a2bsdqym"
+
+[sub_resource type="Resource" id="Resource_rbti4"]
+script = ExtResource("1_brrug")
+metadata/_custom_type_script = "uid://c1c73a2bsdqym"
+
+[sub_resource type="Resource" id="Resource_y1qba"]
+script = ExtResource("1_brrug")
+metadata/_custom_type_script = "uid://c1c73a2bsdqym"
+
+[sub_resource type="Resource" id="Resource_5ly46"]
+script = ExtResource("1_brrug")
+metadata/_custom_type_script = "uid://c1c73a2bsdqym"
+
+[sub_resource type="Resource" id="Resource_uvvmv"]
+script = ExtResource("1_brrug")
+metadata/_custom_type_script = "uid://c1c73a2bsdqym"
+
+[sub_resource type="Resource" id="Resource_oifah"]
+script = ExtResource("1_brrug")
+metadata/_custom_type_script = "uid://c1c73a2bsdqym"
+
+[resource]
+script = ExtResource("2_8o8lk")
+reqs_list = Array[ExtResource("1_brrug")]([SubResource("Resource_brrug"), SubResource("Resource_8o8lk"), SubResource("Resource_wrn8f"), SubResource("Resource_m5jtm"), SubResource("Resource_bvlyw"), SubResource("Resource_hm0rc"), SubResource("Resource_a7wkb"), SubResource("Resource_hfjt4"), SubResource("Resource_6jjme"), SubResource("Resource_w3jpi"), SubResource("Resource_t8ppi"), SubResource("Resource_kp88c"), SubResource("Resource_ww311"), SubResource("Resource_x5j7f"), SubResource("Resource_5yxpo"), SubResource("Resource_rbti4"), SubResource("Resource_y1qba"), SubResource("Resource_5ly46"), SubResource("Resource_uvvmv"), SubResource("Resource_oifah"), null, null, null, null, null])
+metadata/_custom_type_script = "uid://y3ulgo7wgu0r"

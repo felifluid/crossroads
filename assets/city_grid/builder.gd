@@ -45,6 +45,9 @@ func _process(_delta: float) -> void:
 
 
 func _input(event: InputEvent) -> void:
+	if hud.in_menu:
+		return
+	
 	if (Input.is_action_just_pressed("place_object")
 	and not GameManager.placing_locked):
 		var cell_pos = _get_cell_coords()
